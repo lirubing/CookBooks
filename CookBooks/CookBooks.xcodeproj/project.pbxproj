@@ -84,9 +84,6 @@
 		C224D51C1BC65E86001D8E8F /* HeaderURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderURL.h; sourceTree = "<group>"; };
 		C224D51D1BC65F22001D8E8F /* HomeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeHelper.h; sourceTree = "<group>"; };
 		C224D51E1BC65F22001D8E8F /* HomeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeHelper.m; sourceTree = "<group>"; };
-		C2A43B8B1BC550BD00E2BF77 /* HealthHomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthHomeCell.h; sourceTree = "<group>"; };
-		C2A43B8C1BC550BD00E2BF77 /* HealthHomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthHomeCell.m; sourceTree = "<group>"; };
-		C2A43B8D1BC550BD00E2BF77 /* HealthHomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HealthHomeCell.xib; sourceTree = "<group>"; };
 		C2C380AC1BC5FE5E0035C7B4 /* HealthListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthListCell.h; sourceTree = "<group>"; };
 		C2C380AD1BC5FE5E0035C7B4 /* HealthListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthListCell.m; sourceTree = "<group>"; };
 		C2C380AE1BC5FE5E0035C7B4 /* HealthListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HealthListCell.xib; sourceTree = "<group>"; };
@@ -529,9 +526,6 @@
 				C224D4FF1BC60AC7001D8E8F /* HealthHomeCell.h */,
 				C224D5001BC60AC7001D8E8F /* HealthHomeCell.m */,
 				C224D5011BC60AC7001D8E8F /* HealthHomeCell.xib */,
-				C2A43B8B1BC550BD00E2BF77 /* HealthHomeCell.h */,
-				C2A43B8C1BC550BD00E2BF77 /* HealthHomeCell.m */,
-				C2A43B8D1BC550BD00E2BF77 /* HealthHomeCell.xib */,
 				C2C380AC1BC5FE5E0035C7B4 /* HealthListCell.h */,
 				C2C380AD1BC5FE5E0035C7B4 /* HealthListCell.m */,
 				C2C380AE1BC5FE5E0035C7B4 /* HealthListCell.xib */,

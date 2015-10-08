@@ -9,8 +9,8 @@
 #import "RootTabBarVC.h"
 #import "HomeVC.h"
 #import "ClassesifyHomeVC.h"
-#import "HealthHomeVC.h"
 #import "MyVC.h"
+#import "HealthListVC.h"
 
 @interface RootTabBarVC ()
 
@@ -43,7 +43,7 @@
     tabBarVC.navigationItem.title = @"分类";
     
     // 3.添加第3个控制器
-    HealthHomeVC *threeVC = [[HealthHomeVC alloc]init];
+   HealthListVC *threeVC = [[HealthListVC alloc]init];
     
     [self setUpOneChildViewController:threeVC image:[UIImage imageNamed:@"小营养"] title:@"营养说"];
     threeVC.navigationItem.title = @"营养说";

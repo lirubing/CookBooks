@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeView : UIView
+@interface HomeView : UIViewController
 
 - (void)drawMyTableHeader;
 

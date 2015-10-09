@@ -46,9 +46,11 @@
     
     
     //设置yableView区头
-    HomeView *view = [[HomeView alloc]initWithFrame:CGRectMake(0, 0, 375, 375)];
-    [view drawMyTableHeader];
-    self.tableView.tableHeaderView = view;
+    HomeView *viewC = [HomeView new];
+    viewC.view.frame = CGRectMake(0, 0, 375, 375);
+    [viewC drawMyTableHeader];
+    self.tableView.tableHeaderView = viewC.view;
+    [self addChildViewController:viewC];
 
 
 
@@ -89,7 +91,7 @@
 //cell高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        return 219;
+        return 198;
     }
     return 110;
 }

@@ -17,7 +17,7 @@
     [self.img4Two sd_setImageWithURL:[NSURL URLWithString:model.image]];
     self.label4TwoName.text = model.title;
     self.label4TwoDes.text = model.description_home;
-    
+    self.label4TwoDes.numberOfLines = 2;
     
 }
 

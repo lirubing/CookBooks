@@ -12,6 +12,7 @@
 #import "HomeHelper.h"
 #import "UIImageView+WebCache.h"
 #import "HomeModel.h"
+#import "HomeListVC.h"
 
 @interface HomeView()<SDCycleScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 
@@ -50,21 +51,21 @@
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(9, 8, 200, 30)];
     label.text = @"热门推荐";
     label.textColor = [UIColor redColor];
-    [self addSubview:label];
+    [self.view addSubview:label];
     
     
     UIImageView *imag1 = [[UIImageView alloc]initWithFrame:CGRectMake(9, 40, 163, 105)];
     [imag1 sd_setImageWithURL:[NSURL URLWithString:model.image]];
     imag1.backgroundColor = [UIColor cyanColor];
     imag1.userInteractionEnabled = YES;
-    [self addSubview:imag1];
+    [self.view addSubview:imag1];
  
     
     UIImageView *imag2 = [[UIImageView alloc]initWithFrame:CGRectMake(201, 40, 163, 105)];
     [imag2 sd_setImageWithURL:[NSURL URLWithString:model1.image]];
     imag2.backgroundColor = [UIColor blueColor];
     imag2.userInteractionEnabled = YES;
-    [self addSubview:imag2];
+    [self.view addSubview:imag2];
  
 }
 
@@ -93,7 +94,7 @@
     cycleScrollView.imageURLStringsGroup = [mutArrayIM mutableCopy];
 
     
-    [self addSubview:cycleScrollView];
+    [self.view addSubview:cycleScrollView];
     
 }
 
@@ -119,7 +120,7 @@
     collectionView1.backgroundColor = [UIColor whiteColor];
     collectionView1.delegate = self;
     collectionView1.dataSource = self;
-    [self addSubview:collectionView1];
+    [self.view addSubview:collectionView1];
     //集合视图注册
     [collectionView1 registerNib:[UINib nibWithNibName:@"HomeTableCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
    
@@ -146,6 +147,15 @@
     return cell;
 }
 
-
+//item点击事件
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    HomeModel *model = [HomeModel new];
+    model = [HomeHelper shareHomeHelper].arraySet[indexPath.row];
+    HomeListVC *vc = [HomeListVC new];
+    vc.ID = model.id_home;
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
 
 @end

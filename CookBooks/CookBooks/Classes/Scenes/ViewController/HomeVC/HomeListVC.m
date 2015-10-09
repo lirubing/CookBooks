@@ -7,17 +7,29 @@
 //
 
 #import "HomeListVC.h"
+#import "HomeHelper.h"
+#import "HomeListHelper.h"
+#import "HomeCellOneTVC.h"
+#import "UIImageView+WebCache.h"
+#import "HomeModel.h"
 
 @interface HomeListVC ()
-
+{
+    NSInteger _currentPage;
+}
 @end
 
 @implementation HomeListVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _currentPage = 1;
+    [[HomeListHelper shareHomeList] requestHomeListWithPage:_currentPage id_h:self.ID finish:^{
+        [self.tableView reloadData];
+    }];
     
-    
+    //注册
+    [self.tableView registerNib:[UINib nibWithNibName:@"HomeCellOneTVC" bundle:nil] forCellReuseIdentifier:@"cell"];
     
 }
 
@@ -30,18 +42,22 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 0;
+    return [HomeListHelper shareHomeList].array.count;
 }
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 198;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
+    HomeCellOneTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    HomeModel *model = [HomeModel new];
+    model = [HomeListHelper shareHomeList].array[indexPath.row];
+    [cell.img4CellO sd_setImageWithURL:[NSURL URLWithString:model.image]];
     
     return cell;
 }

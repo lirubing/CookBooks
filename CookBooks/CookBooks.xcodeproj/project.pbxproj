@@ -35,7 +35,6 @@
 		C25CCCB31BC7546200360FF4 /* 小营养.png in Resources */ = {isa = PBXBuildFile; fileRef = C25CCC7B1BC7546200360FF4 /* 小营养.png */; };
 		C25CCCB41BC7546200360FF4 /* ClassesifyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCC801BC7546200360FF4 /* ClassesifyView.m */; };
 		C25CCCB51BC7546200360FF4 /* HealthView.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCC831BC7546200360FF4 /* HealthView.m */; };
-		C25CCCB61BC7546200360FF4 /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCC861BC7546200360FF4 /* HomeView.m */; };
 		C25CCCB71BC7546200360FF4 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCC891BC7546200360FF4 /* LoginView.m */; };
 		C25CCCB81BC7546200360FF4 /* ClassesHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCC8D1BC7546200360FF4 /* ClassesHomeVC.m */; };
 		C25CCCB91BC7546200360FF4 /* HealthHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCC901BC7546200360FF4 /* HealthHomeVC.m */; };
@@ -48,6 +47,7 @@
 		C25CCCC61BC760C600360FF4 /* HomeCellTwoTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C25CCCC41BC760C600360FF4 /* HomeCellTwoTVC.xib */; };
 		C25CCCC91BC7B03600360FF4 /* HomeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCCC81BC7B03600360FF4 /* HomeListVC.m */; };
 		C25CCCCC1BC7C0DC00360FF4 /* HomeListHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCCCB1BC7C0DC00360FF4 /* HomeListHelper.m */; };
+		C25CCCCF1BC7E80F00360FF4 /* HomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCCCE1BC7E80F00360FF4 /* HomeView.m */; };
 		C2F41A3E1BC4F94E006CAD80 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F41A3D1BC4F94E006CAD80 /* main.m */; };
 		C2F41A431BC4F94E006CAD80 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2F41A421BC4F94E006CAD80 /* Images.xcassets */; };
 		C2F41A461BC4F94E006CAD80 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2F41A441BC4F94E006CAD80 /* LaunchScreen.xib */; };
@@ -117,8 +117,6 @@
 		C25CCC801BC7546200360FF4 /* ClassesifyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassesifyView.m; sourceTree = "<group>"; };
 		C25CCC821BC7546200360FF4 /* HealthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthView.h; sourceTree = "<group>"; };
 		C25CCC831BC7546200360FF4 /* HealthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthView.m; sourceTree = "<group>"; };
-		C25CCC851BC7546200360FF4 /* HomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeView.h; sourceTree = "<group>"; };
-		C25CCC861BC7546200360FF4 /* HomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeView.m; sourceTree = "<group>"; };
 		C25CCC881BC7546200360FF4 /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
 		C25CCC891BC7546200360FF4 /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		C25CCC8C1BC7546200360FF4 /* ClassesHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassesHomeVC.h; sourceTree = "<group>"; };
@@ -141,6 +139,8 @@
 		C25CCCC81BC7B03600360FF4 /* HomeListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeListVC.m; sourceTree = "<group>"; };
 		C25CCCCA1BC7C0DC00360FF4 /* HomeListHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeListHelper.h; sourceTree = "<group>"; };
 		C25CCCCB1BC7C0DC00360FF4 /* HomeListHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeListHelper.m; sourceTree = "<group>"; };
+		C25CCCCD1BC7E80F00360FF4 /* HomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeView.h; sourceTree = "<group>"; };
+		C25CCCCE1BC7E80F00360FF4 /* HomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeView.m; sourceTree = "<group>"; };
 		C2F41A381BC4F94E006CAD80 /* CookBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F41A3C1BC4F94E006CAD80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2F41A3D1BC4F94E006CAD80 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -451,8 +451,6 @@
 		C25CCC841BC7546200360FF4 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				C25CCC851BC7546200360FF4 /* HomeView.h */,
-				C25CCC861BC7546200360FF4 /* HomeView.m */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -500,6 +498,8 @@
 		C25CCC931BC7546200360FF4 /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
+				C25CCCCD1BC7E80F00360FF4 /* HomeView.h */,
+				C25CCCCE1BC7E80F00360FF4 /* HomeView.m */,
 				C25CCC941BC7546200360FF4 /* HomeVC.h */,
 				C25CCC951BC7546200360FF4 /* HomeVC.m */,
 				C25CCCC71BC7B03600360FF4 /* HomeListVC.h */,
@@ -734,6 +734,7 @@
 				C25CCCB41BC7546200360FF4 /* ClassesifyView.m in Sources */,
 				C25CCCA61BC7546200360FF4 /* ClassesifyHelpers.m in Sources */,
 				C25CCCAD1BC7546200360FF4 /* HealthHomeModel.m in Sources */,
+				C25CCCCF1BC7E80F00360FF4 /* HomeView.m in Sources */,
 				C25CCCAB1BC7546200360FF4 /* ClassesifyModel.m in Sources */,
 				C25CCCB91BC7546200360FF4 /* HealthHomeVC.m in Sources */,
 				C25CCCB81BC7546200360FF4 /* ClassesHomeVC.m in Sources */,
@@ -746,7 +747,6 @@
 				C25CCCC01BC75F8800360FF4 /* HomeCellOneTVC.m in Sources */,
 				C25CCC9D1BC7546200360FF4 /* ClassesHeaderView.m in Sources */,
 				C25CCCA71BC7546200360FF4 /* SmallClassesifyHelpers.m in Sources */,
-				C25CCCB61BC7546200360FF4 /* HomeView.m in Sources */,
 				C25CCCA81BC7546200360FF4 /* HealthHomeHelper.m in Sources */,
 				C25CCCA21BC7546200360FF4 /* HealthListCell.m in Sources */,
 				C25CCCBB1BC7546200360FF4 /* HomeVC.m in Sources */,

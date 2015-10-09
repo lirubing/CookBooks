@@ -24,5 +24,7 @@
 @property (nonatomic,strong) NSString * favorite;
 @property (nonatomic,strong) NSString * create_date;
 @property (nonatomic,strong) NSString * content;
+@property (nonatomic,strong) NSString * dishes_id;
+
 
 @end

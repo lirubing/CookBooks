@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface HomeListVC : UITableViewController
-
+@property (nonatomic,strong) NSString * ID;
 @end

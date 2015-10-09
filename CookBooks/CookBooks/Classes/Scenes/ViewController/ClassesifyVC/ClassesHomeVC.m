@@ -14,17 +14,18 @@
 #import "SmallClassesCell.h"
 #import "SmallClassesifyModel.h"
 #import "ClassesHeaderView.h"
+#import "SmallClassesVC.h"
 
 @interface ClassesHomeVC ()<UICollectionViewDataSource,UICollectionViewDelegate>
 // 定义collectionView属性
 @property (nonatomic,strong) UICollectionView *collectionView;
 
+// 定义smallClassVC属性
+@property (nonatomic,strong) SmallClassesVC *smallClassVC;
 
 
 // 区头的图片
 @property (nonatomic,strong) UIImage *img;
-// 点击collectionView弹出的视图
-@property (nonatomic,strong) UIView *jumpView;
 
 @end
 
@@ -33,19 +34,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     // 集合视图中每一个cell的大小
-    flowLayout.itemSize = CGSizeMake(50, 30);
+    flowLayout.itemSize = CGSizeMake(105, 30);
     // 设置每一行之间的最小间距
     flowLayout.minimumLineSpacing = 20;
     // 设置每一个item之间的最小间距
-    flowLayout.minimumInteritemSpacing = 20;
-    // 区头尺寸
-    flowLayout.headerReferenceSize = CGSizeMake(375, 40);
+    flowLayout.minimumInteritemSpacing = 15;
     
     // 设置分区上左下右的距离, 如果不设置的话就会贴着上父视图的上下左右
-    flowLayout.sectionInset = UIEdgeInsetsMake(20, 30, 20, 30);
+    flowLayout.sectionInset = UIEdgeInsetsMake(15, 15, 15, 15);
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:flowLayout];
     _collectionView.showsVerticalScrollIndicator = NO;
     // 注册collectionView
@@ -56,9 +54,11 @@
     self.collectionView.delegate = self;
     
     
-    _collectionView.backgroundColor = [UIColor whiteColor];
+    _collectionView.backgroundColor = [UIColor colorWithRed:0.732 green:1.000 blue:0.782 alpha:1.000];
     // 注册头
     [self.collectionView registerNib:[UINib nibWithNibName:@"ClassesHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
+    // 区头尺寸
+    flowLayout.headerReferenceSize = CGSizeMake(375, 40);
     
     // 添加到视图上
     [self.view addSubview:self.collectionView];
@@ -70,7 +70,7 @@
     [[ClassesifyHelpers classesifyShare] getUrl:^{
         [self.collectionView reloadData];
     }];
-
+    
     
 }
 
@@ -84,20 +84,21 @@
 // 返回Item的个数
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    ClassesifyModel *model=[[ClassesifyHelpers classesifyShare] mutArray][section];
+    ClassesifyModel *model = [[ClassesifyHelpers classesifyShare] mutArray][section];
     return model.listArr.count;
 }
 
 // 返回Item
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
- 
     ClassesCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     ClassesifyModel *model = [[ClassesifyHelpers classesifyShare] mutArray][indexPath.section];
     cell.dishName.text = model.listArr[indexPath.row][@"name"];
-    cell.backgroundColor = [UIColor colorWithRed:1.000 green:0.879 blue:0.991 alpha:1.000];
+    cell.backgroundColor = [UIColor whiteColor];
     cell.dishName.font = [UIFont systemFontOfSize:15];
-    
+    // 给cell设置圆角
+    cell.layer.cornerRadius = 5;
+    cell.layer.masksToBounds = YES;
     
     
     return cell;
@@ -109,34 +110,42 @@
     ClassesHeaderView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header" forIndexPath:indexPath];
     ClassesifyModel *model = [[ClassesifyHelpers classesifyShare] mutArray][indexPath.section];
     header.header.text = model.name;
-  
+    
     // 分类的图片
     NSString *imgName = [NSString stringWithFormat:@"%ld",(long)indexPath.section + 1];
     _img = [UIImage imageNamed:imgName];
     
     header.headerImg.image = _img;
-
+    
     
     return header;
- }
+}
 
 // 每一个item的点击事件
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
     ClassesifyModel *model = [[ClassesifyHelpers classesifyShare] mutArray][indexPath.section];
-    
+    // 属性传值(接口拼接)
     [SmallClassesifyHelpers smallClassesifyShare].urlID = model.listArr[indexPath.row][@"typeid"];
     
-    [[SmallClassesifyHelpers smallClassesifyShare] getSmallClassesUrl:^{
-        [self.collectionView reloadData];
-    }];
+    //    if ([model.listArr[indexPath.row][@"typeid"] isEqualToString:model.listArr[indexPath.row][@"ord"]]) {
+    // 指向子控制器
+    _smallClassVC = [[SmallClassesVC alloc] init];
+    _smallClassVC.view.center = self.view.center;
+    // 添加子视图控制器
+    [self addChildViewController:_smallClassVC];
+    // 添加子视图
+    [self.view addSubview:_smallClassVC.view];
     
+    //    }
+    //    else if (![[NSString stringWithFormat:@"%ld",(long)model.ord] isEqualToString: [NSString stringWithFormat:@"%@",model.typeID]])
+    //    {
+    //    DetailsListVC *detailVC = [DetailsListVC new];
+    //    [self presentViewController:detailVC animated:NO completion:nil];
+    //    
+    //    }
     
-    
-
-    NSLog(@"%ld--%ld",indexPath.section,indexPath.row);
-
 }
 
 

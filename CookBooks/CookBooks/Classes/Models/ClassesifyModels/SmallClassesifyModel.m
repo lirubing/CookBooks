@@ -12,27 +12,26 @@
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
-    if ([key isEqualToString:@"id"] && [key isEqualToString:@"typeid"]) {
-        self.ID = value;
-        self.typeID = value;
+    //    if ([key isEqualToString:@"id"] && [key isEqualToString:@"typeid"] && [key isEqualToString:@"typename"]) {
+    //        self.ID = value;
+    //        self.typeID = value;
+    //        self.typeName = value;
+    //    }
+    if ([key isEqualToString:@"id"]) {
+        self.ID=value;
+    }
+    if ([key isEqualToString:@"typeid"]) {
+        self.typeID=value;
+    }
+    if ([key isEqualToString:@"typename"]) {
+        self.typeName=value;
     }
 }
 
-- (void)setValuesForKeysWithDictionary:(NSDictionary *)keyedValues
-{
-    self.ID = keyedValues[@"list"][@"id"];
-    self.typeID = keyedValues[@"list"][@"typeid"];
-    self.name = keyedValues[@"list"][@"name"];
-//    self.listArr = keyedValues[@"list"];
-    
-}
-
-- (NSMutableArray *)listArr
-{
-    if (_listArr == nil) {
-        _listArr = [NSMutableArray new];
-    }
-    return _listArr;
-}
+//
+//- (NSString *)description
+//{
+//    return [NSString stringWithFormat:@" %@ ,%@,%@", _typeName,_name,_ID];
+//}
 
 @end

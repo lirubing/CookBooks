@@ -13,6 +13,9 @@
 - (void)setSmallModel:(SmallClassesifyModel *)smallModel
 {
     self.nameLabel.text = smallModel.name;
+    self.nameLabel.frame = CGRectMake(0, 0, 80, 30);
+    self.nameLabel.textAlignment = NSTextAlignmentCenter;
+
 }
 
 - (instancetype)initWithFrame:(CGRect)frame

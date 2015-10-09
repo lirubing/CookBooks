@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C215B1F41BC8084F00FACE41 /* DetailsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C215B1F21BC8084F00FACE41 /* DetailsListCell.m */; };
+		C215B1F51BC8084F00FACE41 /* DetailsListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C215B1F31BC8084F00FACE41 /* DetailsListCell.xib */; };
+		C215B1F81BC8087200FACE41 /* DetailsListHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = C215B1F71BC8087200FACE41 /* DetailsListHelpers.m */; };
+		C215B1FB1BC808A600FACE41 /* DetailsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C215B1FA1BC808A600FACE41 /* DetailsListModel.m */; };
+		C215B2001BC808B600FACE41 /* SmallClassesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C215B1FD1BC808B600FACE41 /* SmallClassesVC.m */; };
+		C215B2011BC808B600FACE41 /* DetailsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C215B1FF1BC808B600FACE41 /* DetailsListVC.m */; };
+		C215B2261BC8095E00FACE41 /* 进入.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B21A1BC8095E00FACE41 /* 进入.png */; };
+		C215B2271BC8095E00FACE41 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B21B1BC8095E00FACE41 /* back.png */; };
+		C215B2281BC8095E00FACE41 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B21C1BC8095E00FACE41 /* 1.png */; };
+		C215B2291BC8095E00FACE41 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B21D1BC8095E00FACE41 /* 10.png */; };
+		C215B22A1BC8095E00FACE41 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B21E1BC8095E00FACE41 /* 2.png */; };
+		C215B22B1BC8095E00FACE41 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B21F1BC8095E00FACE41 /* 3.png */; };
+		C215B22C1BC8095E00FACE41 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B2201BC8095E00FACE41 /* 4.png */; };
+		C215B22D1BC8095E00FACE41 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B2211BC8095E00FACE41 /* 5.png */; };
+		C215B22E1BC8095E00FACE41 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B2221BC8095E00FACE41 /* 6.png */; };
+		C215B22F1BC8095E00FACE41 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B2231BC8095E00FACE41 /* 7.png */; };
+		C215B2301BC8095E00FACE41 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B2241BC8095E00FACE41 /* 8.png */; };
+		C215B2311BC8095E00FACE41 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B2251BC8095E00FACE41 /* 9.png */; };
 		C25CCC9A1BC7546200360FF4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCC3D1BC7546200360FF4 /* AppDelegate.m */; };
 		C25CCC9B1BC7546200360FF4 /* RootTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCC3F1BC7546200360FF4 /* RootTabBarVC.m */; };
 		C25CCC9C1BC7546200360FF4 /* ClassesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCC471BC7546200360FF4 /* ClassesCell.m */; };
@@ -68,6 +86,29 @@
 /* Begin PBXFileReference section */
 		49EAEE788C0D6D720C243798 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6531DBD4B035B7B742673EBD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C215B1F11BC8084F00FACE41 /* DetailsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsListCell.h; sourceTree = "<group>"; };
+		C215B1F21BC8084F00FACE41 /* DetailsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsListCell.m; sourceTree = "<group>"; };
+		C215B1F31BC8084F00FACE41 /* DetailsListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsListCell.xib; sourceTree = "<group>"; };
+		C215B1F61BC8087200FACE41 /* DetailsListHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsListHelpers.h; sourceTree = "<group>"; };
+		C215B1F71BC8087200FACE41 /* DetailsListHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsListHelpers.m; sourceTree = "<group>"; };
+		C215B1F91BC808A600FACE41 /* DetailsListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsListModel.h; sourceTree = "<group>"; };
+		C215B1FA1BC808A600FACE41 /* DetailsListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsListModel.m; sourceTree = "<group>"; };
+		C215B1FC1BC808B600FACE41 /* SmallClassesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallClassesVC.h; sourceTree = "<group>"; };
+		C215B1FD1BC808B600FACE41 /* SmallClassesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallClassesVC.m; sourceTree = "<group>"; };
+		C215B1FE1BC808B600FACE41 /* DetailsListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsListVC.h; sourceTree = "<group>"; };
+		C215B1FF1BC808B600FACE41 /* DetailsListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsListVC.m; sourceTree = "<group>"; };
+		C215B21A1BC8095E00FACE41 /* 进入.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "进入.png"; sourceTree = "<group>"; };
+		C215B21B1BC8095E00FACE41 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		C215B21C1BC8095E00FACE41 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		C215B21D1BC8095E00FACE41 /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
+		C215B21E1BC8095E00FACE41 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		C215B21F1BC8095E00FACE41 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		C215B2201BC8095E00FACE41 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		C215B2211BC8095E00FACE41 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
+		C215B2221BC8095E00FACE41 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
+		C215B2231BC8095E00FACE41 /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
+		C215B2241BC8095E00FACE41 /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
+		C215B2251BC8095E00FACE41 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
 		C25CCC3C1BC7546200360FF4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C25CCC3D1BC7546200360FF4 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C25CCC3E1BC7546200360FF4 /* RootTabBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarVC.h; sourceTree = "<group>"; };
@@ -266,6 +307,9 @@
 				C25CCC4A1BC7546200360FF4 /* ClassesHeaderView.xib */,
 				C25CCC4B1BC7546200360FF4 /* SmallClassesCell.h */,
 				C25CCC4C1BC7546200360FF4 /* SmallClassesCell.m */,
+				C215B1F11BC8084F00FACE41 /* DetailsListCell.h */,
+				C215B1F21BC8084F00FACE41 /* DetailsListCell.m */,
+				C215B1F31BC8084F00FACE41 /* DetailsListCell.xib */,
 			);
 			path = Classesify;
 			sourceTree = "<group>";
@@ -316,6 +360,8 @@
 				C25CCC5B1BC7546200360FF4 /* ClassesifyHelpers.m */,
 				C25CCC5C1BC7546200360FF4 /* SmallClassesifyHelpers.h */,
 				C25CCC5D1BC7546200360FF4 /* SmallClassesifyHelpers.m */,
+				C215B1F61BC8087200FACE41 /* DetailsListHelpers.h */,
+				C215B1F71BC8087200FACE41 /* DetailsListHelpers.m */,
 			);
 			path = ClassesifyHelpers;
 			sourceTree = "<group>";
@@ -367,6 +413,8 @@
 				C25CCC6B1BC7546200360FF4 /* ClassesifyModel.m */,
 				C25CCC6C1BC7546200360FF4 /* SmallClassesifyModel.h */,
 				C25CCC6D1BC7546200360FF4 /* SmallClassesifyModel.m */,
+				C215B1F91BC808A600FACE41 /* DetailsListModel.h */,
+				C215B1FA1BC808A600FACE41 /* DetailsListModel.m */,
 			);
 			path = ClassesifyModels;
 			sourceTree = "<group>";
@@ -480,6 +528,10 @@
 			children = (
 				C25CCC8C1BC7546200360FF4 /* ClassesHomeVC.h */,
 				C25CCC8D1BC7546200360FF4 /* ClassesHomeVC.m */,
+				C215B1FC1BC808B600FACE41 /* SmallClassesVC.h */,
+				C215B1FD1BC808B600FACE41 /* SmallClassesVC.m */,
+				C215B1FE1BC808B600FACE41 /* DetailsListVC.h */,
+				C215B1FF1BC808B600FACE41 /* DetailsListVC.m */,
 			);
 			path = ClassesifyVC;
 			sourceTree = "<group>";
@@ -513,6 +565,18 @@
 			children = (
 				C25CCC971BC7546200360FF4 /* MyVC.h */,
 				C25CCC981BC7546200360FF4 /* MyVC.m */,
+				C215B21A1BC8095E00FACE41 /* 进入.png */,
+				C215B21B1BC8095E00FACE41 /* back.png */,
+				C215B21C1BC8095E00FACE41 /* 1.png */,
+				C215B21D1BC8095E00FACE41 /* 10.png */,
+				C215B21E1BC8095E00FACE41 /* 2.png */,
+				C215B21F1BC8095E00FACE41 /* 3.png */,
+				C215B2201BC8095E00FACE41 /* 4.png */,
+				C215B2211BC8095E00FACE41 /* 5.png */,
+				C215B2221BC8095E00FACE41 /* 6.png */,
+				C215B2231BC8095E00FACE41 /* 7.png */,
+				C215B2241BC8095E00FACE41 /* 8.png */,
+				C215B2251BC8095E00FACE41 /* 9.png */,
 			);
 			path = MyVC;
 			sourceTree = "<group>";
@@ -663,16 +727,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C215B2301BC8095E00FACE41 /* 8.png in Resources */,
+				C215B22E1BC8095E00FACE41 /* 6.png in Resources */,
 				C25CCC9E1BC7546200360FF4 /* ClassesHeaderView.xib in Resources */,
 				C25CCCB01BC7546200360FF4 /* 小主页.png in Resources */,
 				C25CCCB11BC7546200360FF4 /* 小分类.png in Resources */,
+				C215B1F51BC8084F00FACE41 /* DetailsListCell.xib in Resources */,
+				C215B2291BC8095E00FACE41 /* 10.png in Resources */,
+				C215B22B1BC8095E00FACE41 /* 3.png in Resources */,
 				C25CCCB21BC7546200360FF4 /* 小我的.png in Resources */,
+				C215B22A1BC8095E00FACE41 /* 2.png in Resources */,
+				C215B22C1BC8095E00FACE41 /* 4.png in Resources */,
+				C215B2261BC8095E00FACE41 /* 进入.png in Resources */,
 				C2F41A461BC4F94E006CAD80 /* LaunchScreen.xib in Resources */,
 				C25CCCB31BC7546200360FF4 /* 小营养.png in Resources */,
 				C25CCCA11BC7546200360FF4 /* HealthHomeCell.xib in Resources */,
+				C215B2281BC8095E00FACE41 /* 1.png in Resources */,
 				C25CCCC61BC760C600360FF4 /* HomeCellTwoTVC.xib in Resources */,
+				C215B22F1BC8095E00FACE41 /* 7.png in Resources */,
+				C215B2311BC8095E00FACE41 /* 9.png in Resources */,
 				C2F41A431BC4F94E006CAD80 /* Images.xcassets in Resources */,
+				C215B2271BC8095E00FACE41 /* back.png in Resources */,
 				C25CCCA31BC7546200360FF4 /* HealthListCell.xib in Resources */,
+				C215B22D1BC8095E00FACE41 /* 5.png in Resources */,
 				C25CCCC11BC75F8800360FF4 /* HomeCellOneTVC.xib in Resources */,
 				C25CCCA51BC7546200360FF4 /* HomeTableCell.xib in Resources */,
 			);
@@ -725,6 +802,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C215B1F81BC8087200FACE41 /* DetailsListHelpers.m in Sources */,
 				C25CCC9B1BC7546200360FF4 /* RootTabBarVC.m in Sources */,
 				C25CCCB51BC7546200360FF4 /* HealthView.m in Sources */,
 				C25CCCB71BC7546200360FF4 /* LoginView.m in Sources */,
@@ -732,6 +810,7 @@
 				C25CCCA91BC7546200360FF4 /* HealthListHelper.m in Sources */,
 				C25CCCAA1BC7546200360FF4 /* HomeHelper.m in Sources */,
 				C25CCCB41BC7546200360FF4 /* ClassesifyView.m in Sources */,
+				C215B1FB1BC808A600FACE41 /* DetailsListModel.m in Sources */,
 				C25CCCA61BC7546200360FF4 /* ClassesifyHelpers.m in Sources */,
 				C25CCCAD1BC7546200360FF4 /* HealthHomeModel.m in Sources */,
 				C25CCCCF1BC7E80F00360FF4 /* HomeView.m in Sources */,
@@ -740,6 +819,7 @@
 				C25CCCB81BC7546200360FF4 /* ClassesHomeVC.m in Sources */,
 				C25CCCA01BC7546200360FF4 /* HealthHomeCell.m in Sources */,
 				C25CCCA41BC7546200360FF4 /* HomeTableCell.m in Sources */,
+				C215B2011BC808B600FACE41 /* DetailsListVC.m in Sources */,
 				C25CCC9A1BC7546200360FF4 /* AppDelegate.m in Sources */,
 				C25CCC9F1BC7546200360FF4 /* SmallClassesCell.m in Sources */,
 				C25CCCCC1BC7C0DC00360FF4 /* HomeListHelper.m in Sources */,
@@ -752,11 +832,13 @@
 				C25CCCBB1BC7546200360FF4 /* HomeVC.m in Sources */,
 				C25CCC9C1BC7546200360FF4 /* ClassesCell.m in Sources */,
 				C25CCCAE1BC7546200360FF4 /* HealthListerModel.m in Sources */,
+				C215B1F41BC8084F00FACE41 /* DetailsListCell.m in Sources */,
 				C25CCCAF1BC7546200360FF4 /* HomeModel.m in Sources */,
 				C25CCCC51BC760C600360FF4 /* HomeCellTwoTVC.m in Sources */,
 				C25CCCBA1BC7546200360FF4 /* HealthListVC.m in Sources */,
 				C2F41A3E1BC4F94E006CAD80 /* main.m in Sources */,
 				C25CCCC91BC7B03600360FF4 /* HomeListVC.m in Sources */,
+				C215B2001BC808B600FACE41 /* SmallClassesVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

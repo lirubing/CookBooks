@@ -23,7 +23,8 @@
 // 绘制CollectionViewCell
 - (void)drawView
 {
-    self.dishName = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 130, 30)];
+    self.dishName = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 105, 30)];
+    self.dishName.textAlignment = NSTextAlignmentCenter;
     
     [self.contentView addSubview:self.dishName];
 }

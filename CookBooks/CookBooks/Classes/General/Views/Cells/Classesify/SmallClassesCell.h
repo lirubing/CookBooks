@@ -11,6 +11,9 @@
 
 @interface SmallClassesCell : UICollectionViewCell
 
+// 菜名
 @property (nonatomic,strong) UILabel *nameLabel;
+// 传值
 - (void)setSmallModel:(SmallClassesifyModel *)smallModel;
+
 @end

@@ -16,6 +16,9 @@
 @property (nonatomic,strong) NSString *name;
 // 小分类所需拼接的id
 @property (nonatomic,strong) NSString *typeID;
-@property (nonatomic,strong) NSMutableArray *listArr;
+// 类名
+@property (nonatomic,strong) NSString *typeName;
+// POST拼接需要
+@property (nonatomic,strong) NSString *tagid;
 
 @end

@@ -8,9 +8,9 @@
 
 #import "RootTabBarVC.h"
 #import "HomeVC.h"
-#import "ClassesifyHomeVC.h"
+#import "HealthHomeVC.h"
 #import "MyVC.h"
-#import "HealthListVC.h"
+#import "ClassesHomeVC.h"
 
 @interface RootTabBarVC ()
 
@@ -30,7 +30,7 @@
 - (void)setUpAllChildViewController{
     
     // 1.添加第一个控制器
-    HomeVC *oneVC = [[HomeVC alloc]initWithStyle:UITableViewStylePlain];
+    HomeVC *oneVC = [[HomeVC alloc]initWithStyle:UITableViewStyleGrouped];
   
     [self setUpOneChildViewController:oneVC image:[UIImage imageNamed:@"小主页"] title:@"首页"];
     oneVC.navigationItem.title = @"主页";
@@ -38,12 +38,12 @@
     
     
     // 2.添加第2个控制器
-    ClassesifyHomeVC *tabBarVC = [[ClassesifyHomeVC alloc]init];
+    ClassesHomeVC *tabBarVC = [[ClassesHomeVC alloc]init];
     [self setUpOneChildViewController:tabBarVC image:[UIImage imageNamed:@"小分类"] title:@"分类"];
     tabBarVC.navigationItem.title = @"分类";
     
     // 3.添加第3个控制器
-   HealthListVC *threeVC = [[HealthListVC alloc]init];
+    HealthHomeVC *threeVC = [[HealthHomeVC alloc]init];
     
     [self setUpOneChildViewController:threeVC image:[UIImage imageNamed:@"小营养"] title:@"营养说"];
     threeVC.navigationItem.title = @"营养说";

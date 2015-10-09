@@ -14,4 +14,19 @@
 
 - (void)requestWithHomeFinish:(void (^) ())block;
 
+//轮播图需要图片
+@property (nonatomic,strong) NSArray * arrayImg;
+
+//热门数组
+@property (nonatomic,strong) NSArray * arrayHot;
+
+//集合视图数据
+@property (nonatomic,strong) NSArray * arraySet;
+
+//新品推荐数据
+@property (nonatomic,strong) NSArray * arrayNew;
+
+//排行榜
+@property (nonatomic,strong) NSArray * arrayRan;
+
 @end

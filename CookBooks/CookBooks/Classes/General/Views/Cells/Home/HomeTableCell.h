@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HomeModel.h"
 
 @interface HomeTableCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *setImage;
 @property (weak, nonatomic) IBOutlet UILabel *setLable;
-
+@property (nonatomic,strong) HomeModel * model;
 @end

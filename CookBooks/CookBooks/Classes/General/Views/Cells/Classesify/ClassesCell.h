@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ClassesCell : UITableViewCell
+@interface ClassesCell : UICollectionViewCell
+
+@property (nonatomic,strong) UILabel *classesName;
+@property (nonatomic,strong) UILabel *dishName;
 
 @end

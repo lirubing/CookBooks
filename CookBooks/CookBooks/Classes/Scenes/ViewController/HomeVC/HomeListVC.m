@@ -1,24 +1,21 @@
 //
-//  ClassesifyHomeVC.m
-//  Cookbook
+//  HomeListVC.m
+//  CookBooks
 //
-//  Created by lanou3g on 15/10/7.
+//  Created by lanou3g on 15/10/9.
 //  Copyright (c) 2015年 李彬彬. All rights reserved.
 //
 
-#import "ClassesifyHomeVC.h"
+#import "HomeListVC.h"
 
-@interface ClassesifyHomeVC ()
+@interface HomeListVC ()
 
 @end
 
-@implementation ClassesifyHomeVC
+@implementation HomeListVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    
     
     
     
@@ -32,26 +29,23 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
+
     return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
+
     return 0;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    // Configure the cell...
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

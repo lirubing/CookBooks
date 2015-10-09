@@ -51,7 +51,6 @@
         self.healthHomeDict = [healthModelDict copy];
         //刷新界面
         [self.tableView reloadData];
-        NSLog(@"ndhdn");
     }];
     
     

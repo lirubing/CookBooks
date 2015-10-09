@@ -12,11 +12,24 @@
 
 //KVC异常处理
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key{
-    NSLog(@"%@",key);
+    
+    
+    if ([key isEqualToString:@"description"]) {
+        self.description_home = value;
+    }
+    
+    if ([key isEqualToString:@"id"]) {
+        self.id_home = value;
+    }
+    
+    
 }
+
+
+
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%@   --- %@", _title,_image];
+    return [NSString stringWithFormat:@"%@  ,%@ --- %@", _title,_text,_image];
 }
 @end

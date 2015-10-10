@@ -15,4 +15,5 @@
 - (void)requestHomeListWithPage:(NSInteger)currentPage id_h:(NSString *)serial_id finish:(void (^)())block;
 
 @property (nonatomic,strong) NSArray * array;
+@property (nonatomic,strong) NSString * totalStr;
 @end

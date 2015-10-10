@@ -49,7 +49,7 @@
     threeVC.navigationItem.title = @"营养说";
     
     // 4.添加第4个控制器
-    MyVC *fourVC = [[MyVC alloc]initWithStyle:UITableViewStylePlain];
+    MyVC *fourVC = [[MyVC alloc]init];
     [self setUpOneChildViewController:fourVC image:[UIImage imageNamed:@"小我的"] title:@"我的"];
     
  

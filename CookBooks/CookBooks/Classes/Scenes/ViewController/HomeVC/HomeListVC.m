@@ -12,11 +12,13 @@
 #import "HomeCellOneTVC.h"
 #import "UIImageView+WebCache.h"
 #import "HomeModel.h"
+#import "MJRefresh.h"
 
 @interface HomeListVC ()
 {
     NSInteger _currentPage;
 }
+@property (nonatomic,strong) NSMutableArray * arrayAll;
 @end
 
 @implementation HomeListVC
@@ -25,13 +27,53 @@
     [super viewDidLoad];
     _currentPage = 1;
     [[HomeListHelper shareHomeList] requestHomeListWithPage:_currentPage id_h:self.ID finish:^{
+        [self.arrayAll addObjectsFromArray:[HomeListHelper shareHomeList].array];
         [self.tableView reloadData];
+        
+        [self pullLoad];
     }];
     
     //注册
     [self.tableView registerNib:[UINib nibWithNibName:@"HomeCellOneTVC" bundle:nil] forCellReuseIdentifier:@"cell"];
     
+    
+    
 }
+
+//上拉加载
+- (void)pullLoad{
+    
+    _currentPage++;
+
+    [self.tableView.footer beginRefreshing];
+    
+    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadLatData)];
+    
+
+}
+
+- (void)loadLatData{
+    
+    [[HomeListHelper shareHomeList] requestHomeListWithPage:_currentPage id_h:self.ID finish:^{
+        _currentPage++;
+        [self.arrayAll addObjectsFromArray:[HomeListHelper shareHomeList].array];
+        [self.tableView reloadData];
+        
+        //!!! 这块还有问题,没有实现
+                    //如果是最后一条,显示没有更多数据
+                    NSInteger total = (NSInteger)[HomeListHelper shareHomeList].totalStr;
+        if (self.arrayAll.count == total) {
+                        [self.tableView.footer noticeNoMoreData];
+                    }
+        
+        [self.tableView.footer endRefreshing];
+        
+    }];
+    
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -47,7 +89,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return [HomeListHelper shareHomeList].array.count;
+    return self.arrayAll.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -56,12 +98,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HomeCellOneTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     HomeModel *model = [HomeModel new];
-    model = [HomeListHelper shareHomeList].array[indexPath.row];
+    model = self.arrayAll[indexPath.row];
     [cell.img4CellO sd_setImageWithURL:[NSURL URLWithString:model.image]];
     
     return cell;
 }
 
+- (NSMutableArray *)arrayAll{
+    if (_arrayAll == nil) {
+        _arrayAll = [NSMutableArray array];
+    }
+    return _arrayAll;
+}
 
 /*
 // Override to support conditional editing of the table view.

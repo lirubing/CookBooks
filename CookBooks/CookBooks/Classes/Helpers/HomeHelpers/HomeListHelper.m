@@ -29,14 +29,16 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager POST:kHomeURL parameters:dic success:^void(NSURLSessionDataTask * task, id reslut) {
         [self.mutArray removeAllObjects];
+    
         NSDictionary *dic = [reslut objectForKey:@"data"];
         NSArray *arr = [dic objectForKey:@"data"];
         for (NSDictionary *dic1 in arr) {
             HomeModel *model = [HomeModel new];
             [model setValuesForKeysWithDictionary:dic1];
+            [model setValuesForKeysWithDictionary:dic];
+            self.totalStr  = model.total;
             [self.mutArray addObject:model];
         }
-        
         block();
     } failure:^void(NSURLSessionDataTask * task, NSError * error) {
   

@@ -13,18 +13,19 @@
 		C215B1FB1BC808A600FACE41 /* DetailsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C215B1FA1BC808A600FACE41 /* DetailsListModel.m */; };
 		C215B2001BC808B600FACE41 /* SmallClassesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C215B1FD1BC808B600FACE41 /* SmallClassesVC.m */; };
 		C215B2011BC808B600FACE41 /* DetailsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C215B1FF1BC808B600FACE41 /* DetailsListVC.m */; };
-		C215B2261BC8095E00FACE41 /* 进入.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B21A1BC8095E00FACE41 /* 进入.png */; };
-		C215B2271BC8095E00FACE41 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B21B1BC8095E00FACE41 /* back.png */; };
-		C215B2281BC8095E00FACE41 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B21C1BC8095E00FACE41 /* 1.png */; };
-		C215B2291BC8095E00FACE41 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B21D1BC8095E00FACE41 /* 10.png */; };
-		C215B22A1BC8095E00FACE41 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B21E1BC8095E00FACE41 /* 2.png */; };
-		C215B22B1BC8095E00FACE41 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B21F1BC8095E00FACE41 /* 3.png */; };
-		C215B22C1BC8095E00FACE41 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B2201BC8095E00FACE41 /* 4.png */; };
-		C215B22D1BC8095E00FACE41 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B2211BC8095E00FACE41 /* 5.png */; };
-		C215B22E1BC8095E00FACE41 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B2221BC8095E00FACE41 /* 6.png */; };
-		C215B22F1BC8095E00FACE41 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B2231BC8095E00FACE41 /* 7.png */; };
-		C215B2301BC8095E00FACE41 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B2241BC8095E00FACE41 /* 8.png */; };
-		C215B2311BC8095E00FACE41 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = C215B2251BC8095E00FACE41 /* 9.png */; };
+		C237A2BC1BC8EC6400C8C51B /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C237A2B01BC8EC6400C8C51B /* 1.png */; };
+		C237A2BD1BC8EC6400C8C51B /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = C237A2B11BC8EC6400C8C51B /* 10.png */; };
+		C237A2BE1BC8EC6400C8C51B /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C237A2B21BC8EC6400C8C51B /* 2.png */; };
+		C237A2BF1BC8EC6400C8C51B /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = C237A2B31BC8EC6400C8C51B /* 3.png */; };
+		C237A2C01BC8EC6400C8C51B /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = C237A2B41BC8EC6400C8C51B /* 4.png */; };
+		C237A2C11BC8EC6400C8C51B /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = C237A2B51BC8EC6400C8C51B /* 5.png */; };
+		C237A2C21BC8EC6400C8C51B /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = C237A2B61BC8EC6400C8C51B /* 6.png */; };
+		C237A2C31BC8EC6400C8C51B /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = C237A2B71BC8EC6400C8C51B /* 7.png */; };
+		C237A2C41BC8EC6400C8C51B /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = C237A2B81BC8EC6400C8C51B /* 8.png */; };
+		C237A2C51BC8EC6400C8C51B /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = C237A2B91BC8EC6400C8C51B /* 9.png */; };
+		C237A2C61BC8EC6400C8C51B /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = C237A2BA1BC8EC6400C8C51B /* back.png */; };
+		C237A2C71BC8EC6400C8C51B /* 进入.png in Resources */ = {isa = PBXBuildFile; fileRef = C237A2BB1BC8EC6400C8C51B /* 进入.png */; };
+		C237A2CA1BC8ED2F00C8C51B /* MyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C237A2C91BC8ED2F00C8C51B /* MyVC.m */; };
 		C25CCC9A1BC7546200360FF4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCC3D1BC7546200360FF4 /* AppDelegate.m */; };
 		C25CCC9B1BC7546200360FF4 /* RootTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCC3F1BC7546200360FF4 /* RootTabBarVC.m */; };
 		C25CCC9C1BC7546200360FF4 /* ClassesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCC471BC7546200360FF4 /* ClassesCell.m */; };
@@ -58,7 +59,6 @@
 		C25CCCB91BC7546200360FF4 /* HealthHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCC901BC7546200360FF4 /* HealthHomeVC.m */; };
 		C25CCCBA1BC7546200360FF4 /* HealthListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCC921BC7546200360FF4 /* HealthListVC.m */; };
 		C25CCCBB1BC7546200360FF4 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCC951BC7546200360FF4 /* HomeVC.m */; };
-		C25CCCBC1BC7546200360FF4 /* MyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCC981BC7546200360FF4 /* MyVC.m */; };
 		C25CCCC01BC75F8800360FF4 /* HomeCellOneTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCCBE1BC75F8800360FF4 /* HomeCellOneTVC.m */; };
 		C25CCCC11BC75F8800360FF4 /* HomeCellOneTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C25CCCBF1BC75F8800360FF4 /* HomeCellOneTVC.xib */; };
 		C25CCCC51BC760C600360FF4 /* HomeCellTwoTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CCCC31BC760C600360FF4 /* HomeCellTwoTVC.m */; };
@@ -97,18 +97,20 @@
 		C215B1FD1BC808B600FACE41 /* SmallClassesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallClassesVC.m; sourceTree = "<group>"; };
 		C215B1FE1BC808B600FACE41 /* DetailsListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsListVC.h; sourceTree = "<group>"; };
 		C215B1FF1BC808B600FACE41 /* DetailsListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsListVC.m; sourceTree = "<group>"; };
-		C215B21A1BC8095E00FACE41 /* 进入.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "进入.png"; sourceTree = "<group>"; };
-		C215B21B1BC8095E00FACE41 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
-		C215B21C1BC8095E00FACE41 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		C215B21D1BC8095E00FACE41 /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
-		C215B21E1BC8095E00FACE41 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
-		C215B21F1BC8095E00FACE41 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
-		C215B2201BC8095E00FACE41 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
-		C215B2211BC8095E00FACE41 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
-		C215B2221BC8095E00FACE41 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
-		C215B2231BC8095E00FACE41 /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
-		C215B2241BC8095E00FACE41 /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
-		C215B2251BC8095E00FACE41 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
+		C237A2B01BC8EC6400C8C51B /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		C237A2B11BC8EC6400C8C51B /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
+		C237A2B21BC8EC6400C8C51B /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		C237A2B31BC8EC6400C8C51B /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		C237A2B41BC8EC6400C8C51B /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		C237A2B51BC8EC6400C8C51B /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
+		C237A2B61BC8EC6400C8C51B /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
+		C237A2B71BC8EC6400C8C51B /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
+		C237A2B81BC8EC6400C8C51B /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
+		C237A2B91BC8EC6400C8C51B /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
+		C237A2BA1BC8EC6400C8C51B /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		C237A2BB1BC8EC6400C8C51B /* 进入.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "进入.png"; sourceTree = "<group>"; };
+		C237A2C81BC8ED2F00C8C51B /* MyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyVC.h; sourceTree = "<group>"; };
+		C237A2C91BC8ED2F00C8C51B /* MyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyVC.m; sourceTree = "<group>"; };
 		C25CCC3C1BC7546200360FF4 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C25CCC3D1BC7546200360FF4 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C25CCC3E1BC7546200360FF4 /* RootTabBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarVC.h; sourceTree = "<group>"; };
@@ -168,8 +170,6 @@
 		C25CCC921BC7546200360FF4 /* HealthListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthListVC.m; sourceTree = "<group>"; };
 		C25CCC941BC7546200360FF4 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
 		C25CCC951BC7546200360FF4 /* HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
-		C25CCC971BC7546200360FF4 /* MyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyVC.h; sourceTree = "<group>"; };
-		C25CCC981BC7546200360FF4 /* MyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyVC.m; sourceTree = "<group>"; };
 		C25CCCBD1BC75F8800360FF4 /* HomeCellOneTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCellOneTVC.h; sourceTree = "<group>"; };
 		C25CCCBE1BC75F8800360FF4 /* HomeCellOneTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCellOneTVC.m; sourceTree = "<group>"; };
 		C25CCCBF1BC75F8800360FF4 /* HomeCellOneTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCellOneTVC.xib; sourceTree = "<group>"; };
@@ -227,6 +227,25 @@
 				6531DBD4B035B7B742673EBD /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C237A2AF1BC8EC6400C8C51B /* ClassifyImage */ = {
+			isa = PBXGroup;
+			children = (
+				C237A2B01BC8EC6400C8C51B /* 1.png */,
+				C237A2B11BC8EC6400C8C51B /* 10.png */,
+				C237A2B21BC8EC6400C8C51B /* 2.png */,
+				C237A2B31BC8EC6400C8C51B /* 3.png */,
+				C237A2B41BC8EC6400C8C51B /* 4.png */,
+				C237A2B51BC8EC6400C8C51B /* 5.png */,
+				C237A2B61BC8EC6400C8C51B /* 6.png */,
+				C237A2B71BC8EC6400C8C51B /* 7.png */,
+				C237A2B81BC8EC6400C8C51B /* 8.png */,
+				C237A2B91BC8EC6400C8C51B /* 9.png */,
+				C237A2BA1BC8EC6400C8C51B /* back.png */,
+				C237A2BB1BC8EC6400C8C51B /* 进入.png */,
+			);
+			path = ClassifyImage;
 			sourceTree = "<group>";
 		};
 		C25CCC3A1BC7546200360FF4 /* Classes */ = {
@@ -563,20 +582,8 @@
 		C25CCC961BC7546200360FF4 /* MyVC */ = {
 			isa = PBXGroup;
 			children = (
-				C25CCC971BC7546200360FF4 /* MyVC.h */,
-				C25CCC981BC7546200360FF4 /* MyVC.m */,
-				C215B21A1BC8095E00FACE41 /* 进入.png */,
-				C215B21B1BC8095E00FACE41 /* back.png */,
-				C215B21C1BC8095E00FACE41 /* 1.png */,
-				C215B21D1BC8095E00FACE41 /* 10.png */,
-				C215B21E1BC8095E00FACE41 /* 2.png */,
-				C215B21F1BC8095E00FACE41 /* 3.png */,
-				C215B2201BC8095E00FACE41 /* 4.png */,
-				C215B2211BC8095E00FACE41 /* 5.png */,
-				C215B2221BC8095E00FACE41 /* 6.png */,
-				C215B2231BC8095E00FACE41 /* 7.png */,
-				C215B2241BC8095E00FACE41 /* 8.png */,
-				C215B2251BC8095E00FACE41 /* 9.png */,
+				C237A2C81BC8ED2F00C8C51B /* MyVC.h */,
+				C237A2C91BC8ED2F00C8C51B /* MyVC.m */,
 			);
 			path = MyVC;
 			sourceTree = "<group>";
@@ -584,6 +591,7 @@
 		C25CCC991BC7546200360FF4 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				C237A2AF1BC8EC6400C8C51B /* ClassifyImage */,
 			);
 			path = Vendors;
 			sourceTree = "<group>";
@@ -727,31 +735,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C215B2301BC8095E00FACE41 /* 8.png in Resources */,
-				C215B22E1BC8095E00FACE41 /* 6.png in Resources */,
+				C237A2C71BC8EC6400C8C51B /* 进入.png in Resources */,
+				C237A2C41BC8EC6400C8C51B /* 8.png in Resources */,
+				C237A2C01BC8EC6400C8C51B /* 4.png in Resources */,
 				C25CCC9E1BC7546200360FF4 /* ClassesHeaderView.xib in Resources */,
+				C237A2C11BC8EC6400C8C51B /* 5.png in Resources */,
+				C237A2C31BC8EC6400C8C51B /* 7.png in Resources */,
 				C25CCCB01BC7546200360FF4 /* 小主页.png in Resources */,
 				C25CCCB11BC7546200360FF4 /* 小分类.png in Resources */,
+				C237A2C51BC8EC6400C8C51B /* 9.png in Resources */,
+				C237A2BF1BC8EC6400C8C51B /* 3.png in Resources */,
 				C215B1F51BC8084F00FACE41 /* DetailsListCell.xib in Resources */,
-				C215B2291BC8095E00FACE41 /* 10.png in Resources */,
-				C215B22B1BC8095E00FACE41 /* 3.png in Resources */,
 				C25CCCB21BC7546200360FF4 /* 小我的.png in Resources */,
-				C215B22A1BC8095E00FACE41 /* 2.png in Resources */,
-				C215B22C1BC8095E00FACE41 /* 4.png in Resources */,
-				C215B2261BC8095E00FACE41 /* 进入.png in Resources */,
+				C237A2BD1BC8EC6400C8C51B /* 10.png in Resources */,
 				C2F41A461BC4F94E006CAD80 /* LaunchScreen.xib in Resources */,
 				C25CCCB31BC7546200360FF4 /* 小营养.png in Resources */,
 				C25CCCA11BC7546200360FF4 /* HealthHomeCell.xib in Resources */,
-				C215B2281BC8095E00FACE41 /* 1.png in Resources */,
 				C25CCCC61BC760C600360FF4 /* HomeCellTwoTVC.xib in Resources */,
-				C215B22F1BC8095E00FACE41 /* 7.png in Resources */,
-				C215B2311BC8095E00FACE41 /* 9.png in Resources */,
+				C237A2BE1BC8EC6400C8C51B /* 2.png in Resources */,
+				C237A2C21BC8EC6400C8C51B /* 6.png in Resources */,
 				C2F41A431BC4F94E006CAD80 /* Images.xcassets in Resources */,
-				C215B2271BC8095E00FACE41 /* back.png in Resources */,
 				C25CCCA31BC7546200360FF4 /* HealthListCell.xib in Resources */,
-				C215B22D1BC8095E00FACE41 /* 5.png in Resources */,
+				C237A2C61BC8EC6400C8C51B /* back.png in Resources */,
 				C25CCCC11BC75F8800360FF4 /* HomeCellOneTVC.xib in Resources */,
 				C25CCCA51BC7546200360FF4 /* HomeTableCell.xib in Resources */,
+				C237A2BC1BC8EC6400C8C51B /* 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,7 +831,6 @@
 				C25CCC9A1BC7546200360FF4 /* AppDelegate.m in Sources */,
 				C25CCC9F1BC7546200360FF4 /* SmallClassesCell.m in Sources */,
 				C25CCCCC1BC7C0DC00360FF4 /* HomeListHelper.m in Sources */,
-				C25CCCBC1BC7546200360FF4 /* MyVC.m in Sources */,
 				C25CCCC01BC75F8800360FF4 /* HomeCellOneTVC.m in Sources */,
 				C25CCC9D1BC7546200360FF4 /* ClassesHeaderView.m in Sources */,
 				C25CCCA71BC7546200360FF4 /* SmallClassesifyHelpers.m in Sources */,
@@ -837,6 +844,7 @@
 				C25CCCC51BC760C600360FF4 /* HomeCellTwoTVC.m in Sources */,
 				C25CCCBA1BC7546200360FF4 /* HealthListVC.m in Sources */,
 				C2F41A3E1BC4F94E006CAD80 /* main.m in Sources */,
+				C237A2CA1BC8ED2F00C8C51B /* MyVC.m in Sources */,
 				C25CCCC91BC7B03600360FF4 /* HomeListVC.m in Sources */,
 				C215B2001BC808B600FACE41 /* SmallClassesVC.m in Sources */,
 			);

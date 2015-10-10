@@ -24,15 +24,13 @@ static HealthHomeHelper *helper = nil;
 
 //解析数据
 - (void)fetchDataWithUrl:(NSString *)url Block:(void (^)(NSMutableDictionary *))block{
-    
+
     //请求管理器
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     
     //发起请求
     [manager GET:url parameters:nil success:^void(AFHTTPRequestOperation * operation, id result) {
-        
-        
         
         NSArray *arr = result;
         for (NSDictionary *dict in arr) {
@@ -46,6 +44,7 @@ static HealthHomeHelper *helper = nil;
             for (NSDictionary *dic in array) {
                 HealthHomeModel *model = [HealthHomeModel new];
                 [model setValuesForKeysWithDictionary:dic];
+               
                 //存放到数组中
                 [valueArr addObject:model];
             }
@@ -68,6 +67,7 @@ static HealthHomeHelper *helper = nil;
     
 }
 
+
 #pragma mark --lazyload
 - (NSMutableDictionary *)healthHomeMutDict{
     if (_healthHomeMutDict == nil) {
@@ -75,4 +75,9 @@ static HealthHomeHelper *helper = nil;
     }
     return _healthHomeMutDict;
 }
+
+
+
+
+
 @end

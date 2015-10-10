@@ -18,4 +18,7 @@
 
 //解析数据
 - (void)fetchDataWithUrl:(NSString *)url Block:(void(^)(NSMutableDictionary * healthModelDict))block;
+
+
+
 @end

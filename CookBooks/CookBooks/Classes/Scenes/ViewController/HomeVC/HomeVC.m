@@ -9,30 +9,62 @@
 #import "HomeVC.h"
 #import "HomeView.h"
 #import "HomeHelper.h"
+#import "HomeCellOneTVC.h"
+#import "HomeModel.h"
+#import "UIImageView+WebCache.h"
+#import "HomeCellTwoTVC.h"
+#import "MJRefresh.h"
 
 @interface HomeVC ()
-
+{
+    UIView *_view;
+}
 @end
 
 @implementation HomeVC
 
+
+- (void)viewWillAppear:(BOOL)animated{
+
+    //视图将要加载的时候 开始刷新
+    [self.tableView.header beginRefreshing];
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //设置yableView区头
-    HomeView *view = [[HomeView alloc]initWithFrame:CGRectMake(0, 0, 375, 395)];
-    [view drawMyTableHeader];
-    self.tableView.tableHeaderView = view;
+    //上拉刷新
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        [[HomeHelper shareHomeHelper] requestWithHomeFinish:^{
+            [self.tableView reloadData];
+            [self.tableView.header endRefreshing];
+        }];
 
-    [[HomeHelper shareHomeHelper] requestWithHomeFinish:^{
-        [self.tableView reloadData];
-        NSLog(@"------");
     }];
     
+    
+    //设置yableView区头
+    HomeView *viewC = [HomeView new];
+    viewC.view.frame = CGRectMake(0, 0, 375, 375);
+    [viewC drawMyTableHeader];
+    self.tableView.tableHeaderView = viewC.view;
+    [self addChildViewController:viewC];
 
+
+
+    //背景色
+    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.separatorStyle = UITableViewCellEditingStyleNone;
+
+    
     //注册cell
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"HomeCellOneTVC" bundle:nil] forCellReuseIdentifier:@"one"];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"HomeCellTwoTVC" bundle:nil] forCellReuseIdentifier:@"two"];
 
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,27 +73,97 @@
 }
 
 #pragma mark - Table view data source
-
+//分区个数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    
-    
-    return 1;
+    return 2;
 }
 
+//cell个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 44;
+    if (section == 0) {
+        return [HomeHelper shareHomeHelper].arrayNew.count;
+    }
+
+    return [HomeHelper shareHomeHelper].arrayRan.count;
+}
+//cell高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        return 198;
+    }
+    return 110;
+}
+
+//分区的颜色
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section{
+    view.tintColor = [UIColor whiteColor];
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.textLabel.text = @"测试";
-
+//区头
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
-    return cell;
+    if (section == 1) {
+        [self drawSectionViewSection:section];
+    }
+    
+    return _view;
 }
+
+
+//区尾
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
+    if (section == 1) {
+        return @"                                   没有更多了  ";
+        
+    }
+    return nil;
+}
+
+
+
+//返回cell
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 0) {
+        HomeCellOneTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"one" forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        HomeModel *model = [HomeHelper shareHomeHelper].arrayNew[indexPath.row];
+        [cell.img4CellO sd_setImageWithURL:[NSURL URLWithString:model.image]];
+        cell.img4CellO.contentMode = UIViewContentModeScaleToFill;
+        return cell;
+    }
+    
+    HomeCellTwoTVC *cell = [tableView dequeueReusableCellWithIdentifier:@"two" forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    HomeModel *model = [HomeHelper shareHomeHelper].arrayRan[indexPath.row];
+    cell.model = model;
+    return cell;
+    
+}
+
+- (void)drawSectionViewSection:(NSInteger)section{
+     _view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 60)];
+    UILabel *labelLeft = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, 100, 10)];
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(300, 0, 70, 10)];
+    [button setTitle:@"更多》" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(moreAction) forControlEvents:UIControlEventTouchUpInside];
+        labelLeft.text = @"排行榜";
+    
+    [_view addSubview:labelLeft];
+    [_view addSubview:button];
+}
+
+//更多点击事件
+- (void)moreAction{
+    
+    
+    
+}
+
 
 
 /*

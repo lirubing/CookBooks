@@ -11,14 +11,23 @@
 
 @implementation ClassesCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self drawView];
+    }
+    return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+// 绘制CollectionViewCell
+- (void)drawView
+{
+    self.dishName = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 105, 30)];
+    self.dishName.textAlignment = NSTextAlignmentCenter;
+    
+    [self.contentView addSubview:self.dishName];
 }
+
 
 @end

@@ -1,22 +1,24 @@
 //
-//  ClassesifyModel.h
+//  SmallClassesifyModel.h
 //  CookBooks
 //
-//  Created by lanou3g on 15/10/7.
+//  Created by lanou3g on 15/10/8.
 //  Copyright (c) 2015年 李彬彬. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface ClassesifyModel : NSObject
+@interface SmallClassesifyModel : NSObject
 
-// name的id
+// 菜名的id
 @property (nonatomic,strong) NSString *ID;
-// 名字
+// 菜名
 @property (nonatomic,strong) NSString *name;
 // 小分类所需拼接的id
 @property (nonatomic,strong) NSString *typeID;
-// 存放大分类的数组(除了区头的数组)
-@property (nonatomic,strong) NSMutableArray *listArr;
+// 类名
+@property (nonatomic,strong) NSString *typeName;
+// POST拼接需要
+@property (nonatomic,strong) NSString *tagid;
 
 @end

@@ -36,7 +36,17 @@
     listVC.urlStr = DefaultURL;
     
     
+
     JDSideMenu *sideMenu = [[JDSideMenu alloc] initWithContentController:listVC menuController:menuVC];
+
+    //解析数据
+    [[HealthHomeHelper shareHelper] fetchDataWithUrl:HealthHomeURL Block:^(NSMutableDictionary *healthModelDict) {
+        //传值
+        self.healthHomeDict = [healthModelDict copy];
+        //刷新界面
+        [self.tableView reloadData];
+    }];
+
     
     //添加子视图控制器
     [self addChildViewController:sideMenu];

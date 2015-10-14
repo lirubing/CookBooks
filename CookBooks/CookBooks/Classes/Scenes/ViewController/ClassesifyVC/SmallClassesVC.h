@@ -10,6 +10,7 @@
 
 @interface SmallClassesVC : UIViewController
 
-// smallCollectionView
+
 @property (nonatomic,strong) UICollectionView *smallCollectionView;
+
 @end

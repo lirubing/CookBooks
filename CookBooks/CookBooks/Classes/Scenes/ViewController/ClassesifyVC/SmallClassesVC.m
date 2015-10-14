@@ -12,11 +12,13 @@
 #import "SmallClassesifyHelpers.h"
 #import "ClassesHomeVC.h"
 #import "DetailsListVC.h"
+#import "SmallHeaderCell.h"
+#import <AFNetworking.h>
 
 @interface SmallClassesVC ()<UICollectionViewDataSource,UICollectionViewDelegate>
 // 结合视图属性
 @property (nonatomic,strong) UICollectionViewFlowLayout *layout;
-
+@property(nonatomic,strong)NSMutableArray *array;
 
 @end
 
@@ -24,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.view.backgroundColor = [UIColor clearColor];
     
     [self drawJumpView];
@@ -36,16 +38,22 @@
     
     // 传值
     [[SmallClassesifyHelpers smallClassesifyShare] getSmallClassesUrl:^{
+        self.array = [SmallClassesifyHelpers smallClassesifyShare].mutArr;
         [self.smallCollectionView reloadData];
     }];
-
+    
+    // 区头尺寸
+    _layout.headerReferenceSize = CGSizeMake(300, 30);
+    // 注册区头
+    [self.smallCollectionView registerNib:[UINib nibWithNibName:@"SmallHeaderCell" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
+    
     
 }
 
 // 绘制跳转页面jumpView
 - (void)drawJumpView
 {
-//    // 分类视图
+    // 分类视图
     UIView *smallView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 260)];
     smallView.layer.cornerRadius = 6;
     smallView.layer.masksToBounds = YES;
@@ -55,15 +63,31 @@
     // 每个cell的大小
     _layout.itemSize = CGSizeMake(80, 30);
     _layout.minimumInteritemSpacing = 15;
+  
     // 设置分区上左下右距离
     _layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
-    _smallCollectionView.backgroundColor = [UIColor colorWithRed:0.904 green:0.744 blue:0.916 alpha:1.000];
+    _smallCollectionView.backgroundColor = [UIColor colorWithRed:0.569 green:0.637 blue:0.680 alpha:1.000];
     [self.view addSubview:smallView];
     [smallView addSubview:_smallCollectionView];
     smallView.center = self.view.center;
     _smallCollectionView.showsVerticalScrollIndicator = NO;
     
     
+}
+
+// 返回区头
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    SmallHeaderCell *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header" forIndexPath:indexPath];
+    
+    // 解决<__NSArrayM: 0xb550c30>
+    NSMutableArray *a = self.array;
+    NSArray *arr = [NSArray arrayWithArray:a];
+    for (SmallClassesifyModel *s in arr) {
+        header.header.text = s.typeName;
+    }
+    return header;
+   
 }
 
 // 点击方法
@@ -93,6 +117,7 @@
 
     [cell setSmallModel:model];
 
+
     return cell;
 }
 
@@ -100,7 +125,23 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     DetailsListVC *detailsVC = [DetailsListVC new];
-    [self presentViewController:detailsVC animated:detailsVC completion:nil];
+    // 跳转页面动画
+    CATransition *animation = [CATransition animation];
+    [animation setDuration:0.3];
+    [animation setType: kCATransitionMoveIn];
+    [animation setSubtype: kCATransitionFromTop];
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
+    
+    [self.navigationController pushViewController:detailsVC animated:NO];
+    [self.navigationController.view.layer addAnimation:animation forKey:nil];
+    // 属性传值(拼接)
+    SmallClassesifyModel *model = [[SmallClassesifyHelpers smallClassesifyShare] mutArr][indexPath.row];
+    detailsVC.idUrl = model.tagid;
+    detailsVC.navigationItem.title = model.typeName;
+    // 从父视图上移除
+    [self removeFromParentViewController];
+    [self.view removeFromSuperview];
+    
 }
 
 
@@ -118,5 +159,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+-(NSMutableArray *)array
+{
 
+    if (_array ==nil) {
+        _array = [NSMutableArray new];
+    }
+    return _array;
+}
 @end

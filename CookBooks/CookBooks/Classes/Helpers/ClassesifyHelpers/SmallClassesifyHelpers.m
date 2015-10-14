@@ -30,31 +30,25 @@
 // 解析
 - (void)getSmallClassesUrl:(void (^)())resultBlock
 {
-   NSString *url = @"http://www.ecook.cn/public/selectTagsTypeSimpleByTypeid.shtml";
+   NSString *url = @"http://www.ecook.cn/public/selectTagsTypeByTypeid.shtml";
    
-    NSDictionary *dic = @{@"machine":@"Oc1cd5a9eb17e5574e491e1affb90b93a74da9efb",@"vession":@"11.0.3.1",@"id":self.urlID};
+    NSDictionary *dic = @{@"id":self.urlID,@"machine":@"7e7a5fcaf52bdc3ed872d20690f41cde",@"version":@"11.1.3"};
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager POST:url parameters:dic success:^void(AFHTTPRequestOperation * task, id result) {
-        
+    [manager POST:url parameters:dic success:^ void(AFHTTPRequestOperation * task, id result) {
+        // 每次点击前先移除之前保存的数据
+        [self.mutArr removeAllObjects];
         NSArray *arr = result[@"list"];
-//        NSLog(@"%@",arr);
         for (NSDictionary *dic in arr) {
             SmallClassesifyModel *model = [SmallClassesifyModel new];
             [model setValuesForKeysWithDictionary:dic];
             [self.mutArr addObject:model];
         }
-        
-        NSLog(@"%@",self.mutArr);
-        
-        
-        
+//        NSLog(@"%@",self.mutArr);
         // 调用
         resultBlock();
     } failure:^ void(AFHTTPRequestOperation * task, NSError * error) {
         NSLog(@"Error: %@",error);
     }];
-    
- 
     
 }
 

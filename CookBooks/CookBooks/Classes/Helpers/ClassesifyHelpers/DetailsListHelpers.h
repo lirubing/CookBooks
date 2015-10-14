@@ -13,9 +13,14 @@
 // 单例
 + (DetailsListHelpers *)detailsListShare;
 // 解析
-- (void)getDetailsListUrl:(void (^)())resultBlock;
-// 存放解析出来的model数组
+- (void)getDetailsString:(NSString *)str ListUrl:(void (^)())resultBlock;
+// cook界面需要
+- (void)getMaterialString:(NSString *)str ListUrl:(void (^)())resultBlock;
+// 存放解析出来的model大数组
 @property (nonatomic,strong) NSMutableArray *mutArr;
-@property (nonatomic,strong) NSString *idUrl;
+// 存放材料名字的数组
+@property (nonatomic,strong) NSMutableArray *nameArr;
+// 做菜步骤
+@property (nonatomic,strong) NSMutableArray *stepArr;
 
 @end

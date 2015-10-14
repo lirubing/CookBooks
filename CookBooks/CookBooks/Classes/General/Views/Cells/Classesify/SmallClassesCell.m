@@ -31,6 +31,7 @@
 - (void)drawView
 {
     self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 30)];
+    self.nameLabel.font = [UIFont systemFontOfSize:15];
     [self.contentView addSubview:self.nameLabel];
 }
 

@@ -10,4 +10,6 @@
 
 @interface DetailsListVC : UITableViewController
 
+@property (nonatomic,strong) NSString *idUrl;
+
 @end

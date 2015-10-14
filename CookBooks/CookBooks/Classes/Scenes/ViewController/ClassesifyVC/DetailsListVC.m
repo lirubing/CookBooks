@@ -10,6 +10,13 @@
 #import "DetailsListCell.h"
 #import "DetailsListHelpers.h"
 #import "DetailsListModel.h"
+#import "SmallClassesifyModel.h"
+#import "HeaderURL.h"
+#import "CookingStepsVC.h"
+#import "UIImageView+WebCache.h"
+#import "SmallClassesifyHelpers.h"
+#import "MaterialModel.h"
+
 
 @interface DetailsListVC ()
 
@@ -19,48 +26,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // 修改返回按钮颜色
+    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
     
-    [self drawHeader];
+  
     
     self.tableView.showsVerticalScrollIndicator = NO;
+    
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"DetailsListCell" bundle:nil] forCellReuseIdentifier:@"details"];
+    
     // 传值
-//    [[DetailsListHelpers detailsListShare] getDetailsListUrl:^{
-//        [self.tableView reloadData];
-//    NSLog(@"%@",[DetailsListHelpers detailsListShare].mutArr);
-//    }];
-    
+    [[DetailsListHelpers detailsListShare] getDetailsString:self.idUrl ListUrl:^{
+        [self.tableView reloadData];
+    }];
 }
-
-// 绘制区头
-- (void)drawHeader
-{
-    // 区头
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 60)];
-    headerView.backgroundColor = [UIColor colorWithRed:0.675 green:0.958 blue:1.000 alpha:1.000];
-    self.tableView.tableHeaderView = headerView;
-    // 添加button
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    backBtn.frame = CGRectMake(20, 24, 40, 25);
-    [backBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [backBtn setTitle:@"返回" forState:UIControlStateNormal];
-    [backBtn addTarget:self action:@selector(backButton) forControlEvents:UIControlEventTouchUpInside];
-    [headerView addSubview:backBtn];
-    // 添加图片
-    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 24, 25, 25)];
-    UIImage *img = [UIImage imageNamed:@"back"];
-    imgView.image = img;
-    [headerView addSubview:imgView];
-    
-}
-// 点击back返回按钮
-- (void)backButton
-{
-    [self dismissViewControllerAnimated:NO completion:nil];
-}
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -75,8 +55,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-//    return [[[DetailsListHelpers detailsListShare] mutArr] count];
-    return 20;
+    return [[[DetailsListHelpers detailsListShare] mutArr] count];
 }
 
 // 行高
@@ -85,14 +64,49 @@
     return 80;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DetailsListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"details" forIndexPath:indexPath];
-//    DetailsListModel *model = [[DetailsListHelpers detailsListShare] mutArr][indexPath.row];
-//    NSLog(@"%@",model);
-//    [cell setDetalisModel:model];
+    DetailsListModel *model = [[DetailsListHelpers detailsListShare] mutArr][indexPath.row];
     
-    
+    [cell setDetalisModel:model];
+
     return cell;
+}
+
+// 点击cell
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 改变选中cell后状态
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+    CookingStepsVC *stepVC = [CookingStepsVC new];
+    
+    // 图片接口拼接
+    DetailsListModel *model = [DetailsListHelpers detailsListShare].mutArr[indexPath.row];
+    NSString *imgUrl = [NSString stringWithFormat:@"http://pic.ecook.cn/web/%@.jpg!m3",model.imageid];
+    stepVC.urlstr = imgUrl;
+    
+   
+
+    // 材料
+    // 步骤
+    stepVC.name = indexPath.row;
+    stepVC.step = indexPath.row;
+ 
+    
+    CATransition *animation = [CATransition animation];
+    [animation setDuration:0.5f];
+    [animation setTimingFunction:[CAMediaTimingFunction
+                                  functionWithName:kCAMediaTimingFunctionEaseIn]];
+    [animation setType:kCATransitionReveal];
+    [animation setSubtype: kCATransitionFromRight];
+    [self.view.layer addAnimation:animation forKey:@"Reveal"];
+    [self.navigationController.view.layer addAnimation:animation forKey:nil];
+    [self.navigationController pushViewController:stepVC animated:NO];
+
+
+
+
 }
 
 

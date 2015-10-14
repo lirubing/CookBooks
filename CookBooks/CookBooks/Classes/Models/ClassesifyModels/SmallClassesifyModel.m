@@ -12,11 +12,7 @@
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
-    //    if ([key isEqualToString:@"id"] && [key isEqualToString:@"typeid"] && [key isEqualToString:@"typename"]) {
-    //        self.ID = value;
-    //        self.typeID = value;
-    //        self.typeName = value;
-    //    }
+   
     if ([key isEqualToString:@"id"]) {
         self.ID=value;
     }
@@ -24,14 +20,10 @@
         self.typeID=value;
     }
     if ([key isEqualToString:@"typename"]) {
-        self.typeName=value;
+        self.typeName=(NSString*)value;
     }
 }
 
-//
-//- (NSString *)description
-//{
-//    return [NSString stringWithFormat:@" %@ ,%@,%@", _typeName,_name,_ID];
-//}
+
 
 @end

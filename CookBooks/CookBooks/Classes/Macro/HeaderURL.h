@@ -11,4 +11,7 @@
 #define CookBooks_HeaderURL_h
 #define kHomeURL @"http://api.izhangchu.com/"
 
+// 分类列表需要
+#define kClassesURL @"http://pic.ecook.cn/web/%@.jpg!m3"
+
 #endif

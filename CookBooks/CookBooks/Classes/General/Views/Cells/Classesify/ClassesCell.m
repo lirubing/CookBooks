@@ -25,6 +25,7 @@
 {
     self.dishName = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 105, 30)];
     self.dishName.textAlignment = NSTextAlignmentCenter;
+    self.dishName.textColor = [UIColor colorWithRed:0.389 green:0.259 blue:0.128 alpha:1.000];
     
     [self.contentView addSubview:self.dishName];
 }

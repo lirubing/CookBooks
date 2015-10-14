@@ -9,6 +9,9 @@
 #import "DetailsListHelpers.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "DetailsListModel.h"
+#import "CookingStepsVC.h"
+#import "UIImageView+WebCache.h"
+#import "MaterialModel.h"
 
 @interface DetailsListHelpers ()
 
@@ -28,41 +31,62 @@
     return detailsListHelpers;
 }
 
-- (void)getDetailsListUrl:(void (^)())resultBlock
-{
+- (void)getDetailsString:(NSString *)str ListUrl:(void (^)())resultBlock{
     NSString *url = @"http://www.ecook.cn/public/selectOneTwoThreeTags.shtml";
-    NSDictionary *dic = @{@"machine":@"Oc1cd5a9eb17e5574e491e1affb90b93a74da9efb",@"vession":@"11.0.3.1",@"start":@"0",@"tags":self.idUrl};
+    
+    
+    NSInteger ID = [str integerValue];
+    NSNumber *num = [NSNumber numberWithInteger:ID];
+    
+    NSDictionary *dic = @{@"machine":@"7e7a5fcaf52bdc3ed872d20690f41cde",@"version":@"11.1.3",@"start":@"0",@"tags":num};
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:url parameters:dic success:^ void(AFHTTPRequestOperation * task, id result) {
-        
+        // 每次点击前先移除之前保存的数据
+        [self.mutArr removeAllObjects];
         NSArray *arr = result[@"list"];
-        NSLog(@"%@",arr);
-        for (NSMutableDictionary *dict in arr) {
+        for (NSDictionary *dict in arr) {
             DetailsListModel *model = [DetailsListModel new];
             [model setValuesForKeysWithDictionary:dict];
+            [self.mutArr addObject:model];
             
         }
         
         
-        
-        
-        
-        
-        
-        
-        
+        // 材料
+        [self.nameArr removeAllObjects];
+        for (NSDictionary *dic in [result objectForKey:@"list"]) {
+            NSArray *arr = [dic objectForKey:@"materialList"];
+            [self.nameArr addObject:arr];
+        }
+        // 步骤
+        [self.stepArr removeAllObjects];
+        for (NSDictionary *dic in [result objectForKey:@"list"]) {
+            NSArray *arr = [dic objectForKey:@"stepList"];
+            [self.stepArr addObject:arr];
+        }
         resultBlock();
     } failure:^ void(AFHTTPRequestOperation * task, NSError * error) {
         NSLog(@"Error : %@",error);
     }];
     
+    
 }
 
+//懒加载
+- (NSMutableArray *)nameArr{
+    if (_nameArr == nil) {
+        _nameArr = [NSMutableArray array];
+    }
+    return _nameArr;
+}
 
-
-
-
+- (NSMutableArray *)stepArr{
+    if (_stepArr == nil) {
+        _stepArr = [NSMutableArray array];
+    }
+    return _stepArr;
+}
 
 
 

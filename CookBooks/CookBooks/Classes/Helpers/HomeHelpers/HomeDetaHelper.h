@@ -18,4 +18,23 @@
 //做法
 @property (nonatomic,strong) NSArray * arrayDoing;
 
+//材料准备
+@property (nonatomic,strong) NSArray * arrayMaterial;
+@property (nonatomic,strong) NSString * material_image;
+@property (nonatomic,strong) NSArray * arrayLast;
+
+//相关常识
+@property (nonatomic,strong) NSArray * arrayKnow;
+@property (nonatomic,strong) NSString * imgKnow;
+
+//相克相宜
+@property (nonatomic,strong) NSArray * arrayRelationKey;
+@property (nonatomic,strong) NSArray * arrayRelationValue;
+@property (nonatomic,strong) NSString * imgRelation;
+
+
+
+
+
+
 @end

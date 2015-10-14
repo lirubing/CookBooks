@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LoginView.h"
+#import "LoginController.h"
 
-@interface MyVC : UIViewController
+@interface MyVC : UIViewController<UIImagePickerControllerDelegate>
+
+@property (nonatomic,strong)LoginView *loginView;
+
+@property (nonatomic,strong)LoginController *loginController;
 
 @end

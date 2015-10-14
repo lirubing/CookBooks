@@ -7,9 +7,14 @@
 //
 
 #import "HomeDetaMaterial.h"
+#import "HomeDetaHelper.h"
+#import "HomeDetaMater.h"
+#import "HomeDetaMaterOC.h"
 
 @interface HomeDetaMaterial ()
-
+@property (nonatomic,strong) NSMutableArray * arrC;
+@property (nonatomic,strong) NSMutableArray * arrC2;
+@property (nonatomic,strong) NSString * material_image;
 @end
 
 @implementation HomeDetaMaterial
@@ -28,8 +33,58 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //注册
+    [self.tableView registerNib:[UINib nibWithNibName:@"HomeDetaMaterOC" bundle:nil] forCellReuseIdentifier:@"cell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"HomeDetaMater" bundle:nil] forCellReuseIdentifier:@"cell1"];
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    
+    [self requestWithHomeDetaHelperID:self.ID Name:@"DishesMaterial" finish:^{
+        
+        //区头的图片
+        UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 40, 170)];
+        [img sd_setImageWithURL:[NSURL URLWithString:self.material_image]];
+         self.tableView.tableHeaderView = img;
+         
+         [self.tableView reloadData];
+    }];
+        
+    
+
+}
+
+
+//请求数据
+- (void)requestWithHomeDetaHelperID:(NSInteger)dishes_id Name:(NSString *)methodName finish:(void (^)())block{
+    
+    NSNumber *num = [NSNumber numberWithInteger:dishes_id];
+    
+    NSDictionary * dic = @{@"dishes_id":num,@"methodName":methodName,@"version":@"1.0"};
+
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager POST:kHomeURL parameters:dic success:^void(NSURLSessionDataTask * task, id reslut) {
+        
+        NSDictionary *dicAll = [reslut objectForKey:@"data"];
+
+        //材料准备
+        for (NSDictionary *d2 in [dicAll objectForKey:@"material"]) {
+            HomeModel *model = [HomeModel new];
+            [model setValuesForKeysWithDictionary:dicAll];
+            [model setValuesForKeysWithDictionary:d2];
+            [self.arrC addObject:model];
+            self.material_image = model.material_image;
+        }
+        for (NSDictionary *d3 in [dicAll objectForKey:@"spices"]) {
+            HomeModel *model = [HomeModel new];
+            [model setValuesForKeysWithDictionary:d3];
+            [self.arrC2 addObject:model];
+        }
+     
+        block();
+    } failure:^ void(NSURLSessionDataTask * task, NSError * error) {
+        NSLog(@"%@",error);
+    }];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,27 +93,60 @@
 }
 
 #pragma mark - Table view data source
-
+//分区个数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 1;
+    return 2;
 }
-
+//cell个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 20;
+    if (section == 0) {
+        return self.arrC.count;
+    }
+    
+    return self.arrC2.count;
+}
+//cell高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 1) {
+        return 200;
+    }
+    return 50;
 }
 
-
+//返回cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    cell.textLabel.text = @"测测测";
+    if (indexPath.section == 0) {
+        HomeDetaMaterOC *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        HomeModel *model = self.arrC[indexPath.row];
+        cell.model = model;
+        return cell;
+    }
     
+    HomeDetaMater *cell = [tableView dequeueReusableCellWithIdentifier:@"cell1" forIndexPath:indexPath];
+    HomeModel *model = [HomeModel new];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    model = self.arrC2[indexPath.row];
+    cell.model = model;
     return cell;
 }
 
+- (NSMutableArray *)arrC{
+    if (_arrC == nil) {
+        _arrC = [NSMutableArray array];
+    }
+    return _arrC;
+}
 
+- (NSMutableArray *)arrC2{
+    if (_arrC2 == nil) {
+        _arrC2 = [NSMutableArray array];
+    }
+    return _arrC2;
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

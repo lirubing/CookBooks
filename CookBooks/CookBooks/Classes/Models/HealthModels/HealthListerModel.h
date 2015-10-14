@@ -19,7 +19,4 @@
 //图片标题
 @property (nonatomic, strong) NSString * title;
 
-
-
-
 @end

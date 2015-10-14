@@ -30,6 +30,6 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%@  ,%@ --- %@,  ++++%@", _title,_text,_image,_total];
+    return [NSString stringWithFormat:@"%@  ,++++%@,-------%@", _suitable_desc,_material_name,_image];
 }
 @end

@@ -22,6 +22,12 @@
     RootTabBarVC *rootVC = [[RootTabBarVC alloc]init];
     self.window.rootViewController = rootVC;
     
+    
+    //leancloud
+    [AVOSCloud setApplicationId:@"lqrQhAa6p2LMOhofURq8P4eI"
+                      clientKey:@"CxtHcCX1TmkDF1fgRzi2PdcG"];
+    
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

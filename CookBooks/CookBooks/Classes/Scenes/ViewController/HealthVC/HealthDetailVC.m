@@ -22,7 +22,6 @@
     NSString *webViewUrl = [NSString stringWithFormat:@"http://iapi.ipadown.com/api/yangshen/detail.show.api.php?id=%@",self.webViewUrlID];
     //创建UIWebView
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.frame];
-    
     //设置代理
     webView.delegate = self;
     
@@ -40,11 +39,18 @@
 }
 
 
+
+
 #pragma mark --UIWebViewDelegate
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView{
-    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('div')[1].style.display = 'none',document.getElementsByTagName('div')[13].style.display = 'none'"];
+- (void)webViewDidStartLoad:(UIWebView *)webView{
+    
+     [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('div')[1].style.display = 'none',document.getElementsByTagName('div')[13].style.display = 'none',document.getElementsByTagName('a')[0].style.display = 'none'"];
+    
 }
+
+
+
 
 
 

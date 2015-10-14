@@ -10,5 +10,5 @@
 #import "ARSegmentControllerDelegate.h"
 
 @interface HomeDetaMaterial : UITableViewController<ARSegmentControllerDelegate>
-
+@property (nonatomic,assign) NSInteger  ID;
 @end

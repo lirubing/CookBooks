@@ -12,8 +12,7 @@
 #import "HealthHomeHelper.h"
 #import "HealthListVC.h"
 
-
-//抽屉接口网址
+//主页接口网址
 #define HealthHomeURL @"http://iapi.ipadown.com/api/yangshen/left.category.api.php?siteid=8&catename=%E9%A5%AE%E9%A3%9F%E5%85%BB%E7%94%9F&type=1"
 
 @interface HealthDrawerVC ()<UITableViewDelegate,UITableViewDataSource>
@@ -28,7 +27,7 @@
     [super viewDidLoad];
     
     //创建tableView
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64)];
+    self.tableView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     //设置代理
     self.tableView.delegate = self;
@@ -37,25 +36,28 @@
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"HealthHomeCell" bundle:nil] forCellReuseIdentifier:@"HealthHomeCell"];
     
-    
+    //头视图
+    //TODO: 抽屉BUG
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,64)];
+    headerView.backgroundColor = [UIColor greenColor];
+    self.tableView.tableHeaderView = headerView;
+
     
     //添加视图
     [self.view addSubview:self.tableView];
     
     //解析数据
-    
     [[HealthHomeHelper shareHelper] fetchDataWithUrl:HealthHomeURL Block:^(NSMutableDictionary *healthModelDict) {
         //传值
         self.healthHomeDict = [healthModelDict copy];
         //刷新界面
         [self.tableView reloadData];
-   
         
     }];
-        
-  
     
-    
+
+   
+
     
 }
 
@@ -78,7 +80,7 @@
     
     //赋值
     cell.healthHomeLabel.text = model.title;
-    cell.healthHomeLabel.font = [UIFont systemFontOfSize:15];
+    cell.healthHomeLabel.font = [UIFont systemFontOfSize:13];
     return cell;
 }
 
@@ -107,11 +109,10 @@
     NSString *key = [self.healthHomeDict allKeys][indexPath.section];
     //取到当前点击的cell的model
     HealthHomeModel *model = self.healthHomeDict[key][indexPath.row];
-    
     //属性传值
     listVC.urlStr = model.apiurl;
-    
-    
+    //给列表页的标题传值
+    listVC.navigationItem.title = model.title;
     //跳转页面
     [self.navigationController pushViewController:listVC animated:YES];
     
@@ -127,8 +128,6 @@
     }
     return _healthHomeDict;
 }
-
-
 
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];

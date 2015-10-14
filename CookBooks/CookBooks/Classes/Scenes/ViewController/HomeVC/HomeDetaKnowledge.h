@@ -11,4 +11,6 @@
 
 @interface HomeDetaKnowledge : UITableViewController<ARSegmentControllerDelegate>
 
+@property (nonatomic,assign) NSInteger  ID;
+
 @end

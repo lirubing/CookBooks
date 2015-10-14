@@ -52,8 +52,8 @@
         //轮播图
         for (NSDictionary *sI in scrollImage) {
             HomeModel *model = [HomeModel new];
-            model.image = [sI objectForKey:@"image"];
-            [self.mutArray addObject:model.image];
+            [model setValuesForKeysWithDictionary:sI];
+            [self.mutArray addObject:model];
         }
         
         //热门菜单

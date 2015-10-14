@@ -10,4 +10,6 @@
 
 @interface HomeListVC : UITableViewController
 @property (nonatomic,strong) NSString * ID;
+@property (nonatomic,strong) NSString * textName;
+@property (nonatomic,strong) NSString * num;
 @end

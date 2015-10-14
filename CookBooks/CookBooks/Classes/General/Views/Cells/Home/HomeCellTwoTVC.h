@@ -16,4 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *label4TwoDes;
 
 @property (nonatomic,strong) HomeModel * model;
+
+@property (nonatomic,strong) HomeModel * model1;
+
 @end

@@ -22,6 +22,14 @@
 }
 
 
+- (void)setModel1:(HomeModel *)model1{
+    
+    [self.img4Two sd_setImageWithURL:[NSURL URLWithString:model1.image]];
+    self.label4TwoName.text = model1.material_name;
+    self.label4TwoDes.text = model1.suitable_desc;
+    
+}
+
 - (void)awakeFromNib {
     // Initialization code
 }

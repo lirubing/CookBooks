@@ -13,9 +13,20 @@
 #import "UIImageView+WebCache.h"
 #import "HomeModel.h"
 #import "HomeListVC.h"
+#import "HomeWebVC.h"
 
 @interface HomeView()<SDCycleScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 
+//详情页的控制器
+@property (nonatomic, strong) ARSegmentPageController *pager;
+
+@property (nonatomic,strong) UIImage * blurImage;
+
+@property (nonatomic,strong) UIImage * defaultImage;
+@property (nonatomic,strong) HomeDetaDoing *one;
+@property (nonatomic,strong) HomeDetaMaterial *two;
+@property (nonatomic,strong) HomeDetaKnowledge *three;
+@property (nonatomic,strong) HomeDetaRelation *four;
 
 @end
 
@@ -30,13 +41,47 @@
         [self drawScrollImage];
         [self drawImage];
         [self drawSetImage];
-        
         [self reloadInputViews];
     }];
     
     
     
 }
+
+#pragma mark ------------HomeDeatVC----------
+//详情页的控制器
+- (void)getHomeDetaVC{
+    
+    self.blurImage = [UIImage imageNamed:@"终极版"];
+    self.defaultImage = [UIImage imageNamed:@"终极版"];
+    
+    self.one = [HomeDetaDoing new];
+    self.two = [HomeDetaMaterial new];
+    self.three = [[HomeDetaKnowledge alloc]initWithStyle:UITableViewStyleGrouped];
+    self.four = [[HomeDetaRelation alloc]initWithStyle:UITableViewStyleGrouped];
+    
+    ARSegmentPageController *pager = [ARSegmentPageController new];
+    pager.headerHeight = 180;
+    [pager setViewControllers:@[self.one,self.two,self.three,self.four]];
+    
+    self.pager = pager;
+}
+
+//关于详情页区头图片效果的设置
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    
+    CGFloat topInset = [change[NSKeyValueChangeNewKey] floatValue];
+    
+    if (topInset <= self.pager.segmentMiniTopInset) {
+        self.pager.title = nil;
+        self.pager.headerView.imageView.image = self.blurImage;
+    }else{
+        self.pager.title = nil;
+        self.pager.headerView.imageView.image = self.defaultImage;
+    }
+}
+
+
 
 //绘制第一部分
 - (void)drawImage{
@@ -56,6 +101,10 @@
     
     UIImageView *imag1 = [[UIImageView alloc]initWithFrame:CGRectMake(9, 40, 163, 105)];
     [imag1 sd_setImageWithURL:[NSURL URLWithString:model.image]];
+    //轻拍手势
+    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction1)];
+    //将手势添加到视图上
+    [imag1 addGestureRecognizer:tap1];
     imag1.backgroundColor = [UIColor cyanColor];
     imag1.userInteractionEnabled = YES;
     [self.view addSubview:imag1];
@@ -63,11 +112,43 @@
     
     UIImageView *imag2 = [[UIImageView alloc]initWithFrame:CGRectMake(201, 40, 163, 105)];
     [imag2 sd_setImageWithURL:[NSURL URLWithString:model1.image]];
+    //轻拍手势
+    UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction2)];
+    //将手势添加到视图上
+    [imag2 addGestureRecognizer:tap2];
     imag2.backgroundColor = [UIColor blueColor];
     imag2.userInteractionEnabled = YES;
     [self.view addSubview:imag2];
  
 }
+//点击事件
+- (void)tapAction1{
+    [self getHomeDetaVC];
+    HomeModel *model = [HomeModel new];
+    model = [HomeHelper shareHomeHelper].arrayHot.firstObject;
+    self.one.ID = [model.id_home integerValue];
+    self.two.ID = [model.id_home integerValue];
+    self.three.ID = [model.id_home integerValue];
+    self.four.ID = [model.id_home integerValue];
+    
+    self.pager.navigationItem.title = model.title;
+    [self.navigationController pushViewController:self.pager animated:YES];
+    
+}
+//点击事件
+- (void)tapAction2{
+    HomeModel *model = [HomeModel new];
+    model = [HomeHelper shareHomeHelper].arrayHot.lastObject;
+    self.one.ID = [model.id_home integerValue];
+    self.two.ID = [model.id_home integerValue];
+    self.three.ID = [model.id_home integerValue];
+    self.four.ID = [model.id_home integerValue];
+    
+    self.pager.navigationItem.title = model.title;
+    [self.navigationController pushViewController:self.pager animated:YES];
+    
+}
+
 
 
 //绘制轮播图
@@ -77,7 +158,8 @@
     NSMutableArray *mutArrayIM = [NSMutableArray array];
     
     for (int i = 0; i < [HomeHelper shareHomeHelper].arrayImg.count; i++) {
-        [mutArrayIM addObject:[HomeHelper shareHomeHelper].arrayImg[i]];
+        HomeModel *model = [HomeHelper shareHomeHelper].arrayImg[i];
+        [mutArrayIM addObject:model.image];
     }
     
     SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(9, 158, 356, 132) imageURLStringsGroup:nil];
@@ -103,7 +185,12 @@
 
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
 {
-    NSLog(@"---点击了第%ld张图片", index);
+    HomeModel *model = [HomeHelper shareHomeHelper].arrayImg[index];
+    HomeWebVC *webVC = [HomeWebVC new];
+    webVC.webString = model.link;
+    NSLog(@"====%@",webVC.webString);
+    [self.navigationController pushViewController:webVC animated:YES];
+
 }
 
 
@@ -154,6 +241,7 @@
     model = [HomeHelper shareHomeHelper].arraySet[indexPath.row];
     HomeListVC *vc = [HomeListVC new];
     vc.ID = model.id_home;
+    vc.textName = model.text;
     [self.navigationController pushViewController:vc animated:YES];
     
 }

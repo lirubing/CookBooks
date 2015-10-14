@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface HealthHomeVC : UIViewController
+
+
 //存放接收解析数据传过来的字典
 @property (nonatomic, strong) NSDictionary * healthHomeDict;
+
 
 @end

@@ -2,7 +2,7 @@
 //  HealthHomeHelper.m
 //  CookBooks
 //
-//  Created by lanou3g on 15/10/8.
+//  Created by lanou3g on 15/10/7.
 //  Copyright (c) 2015年 李彬彬. All rights reserved.
 //
 
@@ -10,7 +10,10 @@
 #import "AFHTTPRequestOperationManager.h"
 #import "HealthHomeModel.h"
 
+
+
 @implementation HealthHomeHelper
+
 //单例
 static HealthHomeHelper *helper = nil;
 + (HealthHomeHelper *)shareHelper{
@@ -53,18 +56,18 @@ static HealthHomeHelper *helper = nil;
             //将数据存放到字典里
             [self.healthHomeMutDict setValue:valueArr forKey:key];
         }
+    
         
-        
-        block(self.healthHomeMutDict);
+          block(self.healthHomeMutDict);
         
         
     } failure:
-     ^void(AFHTTPRequestOperation * operation, NSError * error) {
-         
-         
-     }];
+^void(AFHTTPRequestOperation * operation, NSError * error) {
+   
     
+}];
     
+  
     
 }
 
@@ -75,4 +78,5 @@ static HealthHomeHelper *helper = nil;
     }
     return _healthHomeMutDict;
 }
+
 @end

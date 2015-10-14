@@ -1,12 +1,15 @@
 //
 //  MyVC.m
-//  Cookbook
+//  CookBooks
 //
-//  Created by lanou3g on 15/10/7.
+//  Created by lanou3g on 15/10/10.
 //  Copyright (c) 2015年 李彬彬. All rights reserved.
 //
 
 #import "MyVC.h"
+#import "LoginView.h"
+#import "LoginController.h"
+#import "HomeVC.h"
 
 @interface MyVC ()
 
@@ -17,18 +20,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    _loginView = [[LoginView alloc]init];
+    self.view = _loginView;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    _loginController = [LoginController new];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated{
+    
+    AVUser *currentUser = [AVUser currentUser];
+    if (currentUser != nil) {
+        [_loginView.loginBtn setTitle:currentUser.username forState:UIControlStateNormal];
+        [_loginView.loginBtn addTarget:self action:@selector(hehe) forControlEvents:UIControlEventTouchUpInside];
+
+        [_loginView.logoutBtn setTitle:@"注销" forState:UIControlStateNormal];
+        [_loginView.logoutBtn addTarget:self action:@selector(logoutAction) forControlEvents:UIControlEventTouchUpInside];
+        _loginView.headImgView.image = [UIImage imageNamed:@"yuzhitu"];
+    } else {
+        [_loginView.loginBtn setTitle:@"立即登录" forState:UIControlStateNormal];
+        [_loginView.loginBtn addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
+        _loginView.headImgView.image = [UIImage imageNamed:@"yuzhitu"];
+
+    }
+    
 }
 
+<<<<<<< HEAD
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -41,60 +59,43 @@
 
     // Return the number of rows in the section.
     return 0;
+=======
+- (void)hehe{
+    NSLog(@"hehehehehhehehheheheehhe");
+
+>>>>>>> 3970684ba3959df9d3f087ff081af33942b89a90
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+//登陆
+- (void)login{
     
-    // Configure the cell...
+    [self.navigationController pushViewController:_loginController animated:NO];
+    NSLog(@"fuckfuckfuckfukc");
     
-    return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+
+//注销
+- (void)logoutAction{
+    UIAlertController *logoutAlertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否注销当前用户" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *logoutAlectAction = [UIAlertAction actionWithTitle:@"注销" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [AVUser logOut];
+        [_loginView.loginBtn setTitle:@"立即登录" forState:UIControlStateNormal];
+        [_loginView.loginBtn addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
+        [_loginView.logoutBtn setTitle:nil forState:UIControlStateNormal];
+        [_loginView.logoutBtn addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
+
+    }];
+    UIAlertAction *dontLogoutAlectAction = [UIAlertAction actionWithTitle:@"再逛逛" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+    }];
+    [logoutAlertController addAction:logoutAlectAction];
+    [logoutAlertController addAction:dontLogoutAlectAction];
+    [self presentViewController:logoutAlertController animated:YES completion:nil];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

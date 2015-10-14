@@ -19,6 +19,18 @@
 {
     UIView *_view;
 }
+
+
+//详情页的控制器
+@property (nonatomic, strong) ARSegmentPageController *pager;
+
+@property (nonatomic,strong) UIImage * blurImage;
+
+@property (nonatomic,strong) UIImage * defaultImage;
+@property (nonatomic,strong) HomeDetaDoing *one;
+@property (nonatomic,strong) HomeDetaMaterial *two;
+@property (nonatomic,strong) HomeDetaKnowledge *three;
+@property (nonatomic,strong) HomeDetaRelation *four;
 @end
 
 @implementation HomeVC
@@ -66,6 +78,43 @@
 
     
 }
+
+
+#pragma mark ------------HomeDeatVC----------
+//详情页的控制器
+- (void)getHomeDetaVC{
+    
+    self.blurImage = [UIImage imageNamed:@"终极版"];
+    self.defaultImage = [UIImage imageNamed:@"终极版"];
+    
+    self.one = [HomeDetaDoing new];
+    self.two = [HomeDetaMaterial new];
+    self.three = [[HomeDetaKnowledge alloc]initWithStyle:UITableViewStyleGrouped];
+    self.four = [[HomeDetaRelation alloc]initWithStyle:UITableViewStyleGrouped];
+    
+    ARSegmentPageController *pager = [ARSegmentPageController new];
+    pager.headerHeight = 180;
+    [pager setViewControllers:@[self.one,self.two,self.three,self.four]];
+    
+    self.pager = pager;
+}
+
+//关于详情页区头图片效果的设置
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    
+    CGFloat topInset = [change[NSKeyValueChangeNewKey] floatValue];
+    
+    if (topInset <= self.pager.segmentMiniTopInset) {
+        self.pager.title = nil;
+        self.pager.headerView.imageView.image = self.blurImage;
+    }else{
+        self.pager.title = nil;
+        self.pager.headerView.imageView.image = self.defaultImage;
+    }
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -122,7 +171,36 @@
     return nil;
 }
 
+//点击事件
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [self getHomeDetaVC];
+    
+    if (indexPath.section == 0) {
+        HomeModel *model = [HomeModel new];
+        model = [HomeHelper shareHomeHelper].arrayNew[indexPath.row];
+        self.one.ID = [model.id_home integerValue];
+        self.two.ID = [model.id_home integerValue];
+        self.three.ID = [model.id_home integerValue];
+        self.four.ID = [model.id_home integerValue];
+        self.pager.navigationItem.title = model.title;
+        [self.navigationController pushViewController:self.pager animated:YES];
+        return;
 
+    }
+    
+    HomeModel *model = [HomeModel new];
+    model = [HomeHelper shareHomeHelper].arrayRan[indexPath.row];
+    self.one.ID = [model.id_home integerValue];
+    self.two.ID = [model.id_home integerValue];
+    self.three.ID = [model.id_home integerValue];
+    self.four.ID = [model.id_home integerValue];
+    
+    self.pager.navigationItem.title = model.title;
+    [self.navigationController pushViewController:self.pager animated:YES];
+    
+    
+}
 
 //返回cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -144,6 +222,7 @@
     
 }
 
+//区头view
 - (void)drawSectionViewSection:(NSInteger)section{
      _view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 60)];
     UILabel *labelLeft = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, 100, 10)];
@@ -159,6 +238,7 @@
 
 //更多点击事件
 - (void)moreAction{
+    
     
     
     
